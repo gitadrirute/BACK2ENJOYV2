@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  height: auto; /* Cambiado de 420px a auto para adaptarse al contenido */
+  padding: 20px; /* Agrega padding para no pegar el contenido a los bordes */
+  margin: 5% auto 80px; /* Simplificado para claridad */
+  box-shadow: 2px 5px 20px rgba(119, 119, 119, 0.5);
+}
+
+  
+.tab-pane-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Cambiar a center si se desea centrar todo */
+  width: 100%;
+}
+
+  
+  .tab-pane-content p, .tab-pane-content h3 {
+    margin: 0.5rem 0;
+  }
+  
+  .icon-text {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Considerar cambiar a flex-start si el ícono debe alinearse a la izquierda */
+    width: 100%;
+}
+
+.icon-text p {
+    margin-left: 0.5rem;
+}

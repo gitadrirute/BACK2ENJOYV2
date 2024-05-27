@@ -1,0 +1,21 @@
+/* ButtonStyles.css */
+.profile-button {
+    background-color: black; 
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+  }
+  /* ButtonStyles.css */
+.image-button {
+    width: 50px; /* Ajusta el ancho según el tamaño deseado */
+    height: 50px; /* Ajusta la altura según el tamaño deseado */
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  

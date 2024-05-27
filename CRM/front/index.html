@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validaciones</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">  
+</head>
+<body>
+    <div class="container">
+        <h1>Validación de Usuarios</h1>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Nombre de Usuario</th>
+                    <th>Correo</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th> <!-- Nueva columna para los botones -->
+                </tr>
+            </thead>
+            <tbody id="usuarios-list">
+                <!-- Aquí se mostrarán los usuarios -->
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h1>Validación de Negocios</h1>
+        <!-- Asegúrate de que la tabla de negocios también tenga las clases de Bootstrap -->
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Foto</th>
+                    <th>Horario</th>
+                    <th>Informacion</th>
+                    <th>Telefono</th>
+                    <th>SitioWeb</th>
+                    <th>Ubicacion</th>
+                    <th>Acciones</th> <!-- Nueva columna para los botones -->
+                </tr>
+            </thead>
+            <tbody id="negocios-list">
+                <!-- Aquí se mostrarán los restaurantes -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

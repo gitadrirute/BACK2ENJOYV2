@@ -1,0 +1,73 @@
+
+.formulario-container {
+    width:800px ;
+    text-align: center;
+    background: transparent rgba(255, 255, 255, 0.1);
+    background-size: cover;
+    backdrop-filter: blur(30px);
+    padding: 20px; /* Espaciado interno */
+    border-radius: 50px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin-bottom: 20px; /* Margen inferior para separar del contenido debajo */
+  }
+
+  .formError{
+    color: rgb(255, 208, 0);
+    font-size: 14px;
+  }
+
+  .errorBox{
+    margin: 3px;
+  }
+  
+  form .input-box input{
+    width: 80%;/* Espaciado entre cada campo*/
+    padding: 15px;
+    height: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  form .input-box input:focus{
+    border-color: #66afe9;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+  }
+/* Estilo del elemento select */
+.input-box select {
+  text-align: center;
+  width: 60%;
+  padding: 20px;
+  border: 2px solid #cccccc41;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.021);
+  font-size: 16px;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Estilo del elemento select cuando está enfocado */
+.input-box select:focus {
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+/* Estilo de las opciones dentro del select */
+.input-box select option {
+  margin: 30px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+/* Estilo adicional para un mejor aspecto */
+/* .input-box select:hover {
+  border-color: #888;
+} */
+
+.addImg{
+  /* background: red; */
+  color: white;
+  padding: 10px;
+  margin: 20px;
+}
+  /* Agrega cualquier otro estilo necesario para los campos del formulario */
+  
