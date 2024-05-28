@@ -9,15 +9,14 @@ export const NavMenu = () => {
 
     // Función para manejar el desplazamiento suave a una sección específica
     const handleRedirectTo = (id) => {
-        // Redirige a la página principal con un fragmento de ID
-        navigate(`/#${id}`);
-
+        // Solo navega si el id actual es diferente al deseado para evitar bucles
+        if (window.location.hash !== `#${id}`) {
+            navigate(`/#${id}`);
+        }
+    
         // Agrega un retraso antes de desplazarte a la sección para asegurar que la redirección se complete
         setTimeout(() => {
-            // Encuentra la sección de destino por su ID
             const targetSection = document.getElementById(id);
-
-            // Desplázate suavemente a la sección de destino
             if (targetSection) {
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
@@ -25,6 +24,8 @@ export const NavMenu = () => {
             }
         }, 0);
     };
+    
+
 
     // Función para manejar el cierre de sesión
     const handleLogout = () => {
@@ -63,19 +64,22 @@ export const NavMenu = () => {
             </nav>
             {/* Usa `Link` con `onClick` para manejar el desplazamiento suave */}
             <div className='btnGroup'>
-                {isLoggedIn && ( // Mostrar botón solo si está autenticado
+                {isLoggedIn && (
                     <Link className="clickable_btn" to="/negocio" onClick={(event) => handleRedirectTo('start')}>
                         Empresa
                     </Link>
                 )}
-                {isLoggedIn && ( // Mostrar botón solo si está autenticado
-                    <Link className="clickable_btn" to="/perfil" onClick={(event) => handleRedirectTo('start')}>
-                        <BotonPerfil></BotonPerfil>
+                {isLoggedIn && (
+                    <Link  to="/perfil" onClick={(event) => handleRedirectTo('start')}>
+                        <BotonPerfil />
                     </Link>
                 )}
-                <Link className="clickable_btn" to="/login" onClick={isLoggedIn ? handleLogout : (event) => handleRedirectTo('contact')}>
-                    {isLoggedIn ? 'Cerrar Sesión' : 'Registrarse'}
+                {!isLoggedIn && (
+                <Link className="clickable_btn" to="/login">
+                     Regístrate
                 </Link>
+                )}
+
             </div>
         </header>
         <hr />
