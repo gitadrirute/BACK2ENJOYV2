@@ -61,7 +61,7 @@ function UserProfile() {
   }
 
   // Verificar si userData tiene claves esperadas
-  const hasUserData = userData && (userData.nombre || userData.apellidos || userData.correo || userData.negocio);
+  const hasUserData = userData && (userData.nombre || userData.apellidos || userData.nombreUsuario || userData.correo || userData.negocio);
 
   if (!hasUserData) {
     return <p>No se encontraron datos del usuario.</p>;
@@ -79,6 +79,8 @@ function UserProfile() {
           <p>{userData.nombre || 'N/A'}</p>
           <h2 className='h22'>Apellidos</h2>
           <p>{userData.apellidos || 'N/A'}</p>
+          <h2 className='h22'>Nombre Usuario</h2>
+          <p>{userData.nombreUsuario || 'N/A'}</p>
           <h2 className='h22'>Correo</h2>
           <p>{userData.correo || 'N/A'}</p>
           {userData.negocio && (
