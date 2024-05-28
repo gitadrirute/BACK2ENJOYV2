@@ -8,9 +8,9 @@
   --font-color_2: #1d1d1b;
   --secondary-bg: #e6e6e6;
   --box-color:#FFFFFF;
-  --contrast:#79b7ff;
-  --contrast_light:#a1cdff;
-  --contrast_dark:#0061cfc9;
+  --contrast:rgba(118, 255, 221);
+  --contrast_light:rgb(146, 255, 228);
+  --contrast_dark:rgb(95, 206, 178);
   --shadow:#3636366e;
 }
 
@@ -367,19 +367,9 @@ header .logo{
   color: var(--contrast_dark);
 }
 
-/* .advantages__card.highlighted {
-  transform: scale(1.2); 
-  opacity: 1; 
-}
-
-.advantages__card:not(.highlighted) {
-  transform: scale(0.8);
-  opacity: 0.3; 
-} */
-
 .advantages__card h2{
   font-size: 24px;
-  padding: 10px 30px 10px 30px;
+  padding: 40px 30px 10px 30px;
 }
 
 .advantages__card p{

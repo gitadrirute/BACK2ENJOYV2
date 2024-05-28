@@ -128,21 +128,23 @@ const FormularioNegocios = () => {
               <div className='errorBox'>
                 {errors.ubicacion && <span className='formError'>{errors.ubicacion.message}</span>}
               </div>
-              <input type="text" placeholder="Ubicación" name="ubicacion"
-                {...register("ubicacion", {
-                  required: "El campo ubicación es obligatorio",
-                  pattern: { value: /^[-+]?\d{1,2}\.\d+,[-+]?\d{1,3}\.\d+$/, message: "La ubicación debe estar en formato de coordenadas geográficas (latitud, longitud)" }
-                })} />
+              <select name="categoria_negocio_id" {...register("ubicacion", { required: "Seleccione una ubicacion" })}>
+                <option value="">Selecciona una ubicacion</option>
+                <option value="malaga">Málaga</option>
+              </select>            
             </div>
+            <br/>
             <div className="input-box">
+              <div className='errorBox'>
+                {errors.categoria_negocio_id && <span className='formError'>{errors.categoria_negocio_id.message}</span>}
+              </div>
               <select name="categoria_negocio_id" {...register("categoria_negocio_id", { required: "Seleccione una categoría de negocio" })}>
                 <option value="">Selecciona una categoría de negocio</option>
                 <option value="1">Bar</option>
                 <option value="2">Restaurante</option>
                 <option value="3">Hotel</option>
               </select>
-              {errors.categoria_negocio_id && <span className='formError'>{errors.categoria_negocio_id.message}</span>}
-            </div>
+            </div> <br/>
             <button type="submit">Registrar Negocio</button>
             <p>{error}</p> {/* Mostrar el mensaje de error */}
             {successMessage && <span>¡¡Enviado con éxito!!</span>}

@@ -9,6 +9,7 @@ import '../assets/css/App.css';
 import MeetUs from '../components/MeetUs'
 import RestaurantSection from './UsuarioRegistrado/RestaurantSection'
 import HotelSection from './UsuarioRegistrado/HotelSection'
+import SeccionPrecio from '../components/SeccionPrecio'
 
 
 //PAGINA PRINCIPAL
@@ -20,6 +21,7 @@ const Home = () => {
       <HotelSection city={"Malaga"}/>
       <MeetUs></MeetUs>
       <Budget></Budget>
+      <SeccionPrecio></SeccionPrecio>
       <FaqSection></FaqSection>
       <ContactUs></ContactUs>
       {/* <NewsLetter></NewsLetter> */}

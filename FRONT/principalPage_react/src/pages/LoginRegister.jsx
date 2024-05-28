@@ -91,7 +91,7 @@ const LoginRegister = (props) => {
         setSuccessMessage(true);
         reset();
         console.log('Token:', responseData['token de acceso']); // Verificar el token recibido
-        login(responseData['token de acceso']);  // Guardar el token en el contexto de autenticación
+        login(responseData['token de acceso']); //Guardar el token en el contexto de autenticación
         navigate("/pasarela");
       } else {
         const serverErrors = responseData.error;
