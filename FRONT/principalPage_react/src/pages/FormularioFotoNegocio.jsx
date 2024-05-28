@@ -12,7 +12,6 @@ const FormularioFotosNegocio = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
 
-  // Redirigir al login si no está autenticado
   if (!isLoggedIn) {
     navigate('/login');
   }
@@ -28,18 +27,18 @@ const FormularioFotosNegocio = () => {
   const formSubmit = handleSubmit(async (data) => {
     try {
       const formData = new FormData();
-      data.imagenes.forEach((file, index) => {
-        formData.append('rutaImagen', file);
+      data.imagenes.forEach((file) => {
+        formData.append('rutaImagen[]', file); // Asegurarse de que el nombre sea 'rutaImagen[]' para múltiples archivos
       });
-
+  
       const response = await fetch('http://127.0.0.1:8000/api/subirFotoNegocio', {
-        method: 'POST',
+        method: 'POST', // Asegúrate de que el método es POST
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}` // No establecer Content-Type manualmente
         },
         body: formData
       });
-
+  
       if (response.ok) {
         alert("Fotos subidas con éxito");
         reset();
@@ -53,6 +52,8 @@ const FormularioFotosNegocio = () => {
       setError('Error de conexión o en el proceso de subida');
     }
   });
+  
+
 
   return (
     <>
