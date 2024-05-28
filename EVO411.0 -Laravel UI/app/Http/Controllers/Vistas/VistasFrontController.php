@@ -22,7 +22,10 @@ class VistasFrontController extends Controller
 
         $negocios = DB::table('negocios')
             ->join('valoraciones', 'valoraciones.negocio_id', '=', 'negocios.id')
-            ->leftJoin('ofertas', 'ofertas.negocio_id', '=', 'negocios.id')
+            ->leftJoin('ofertas',function ($join){ //de esta manera se evita que el negocio aparezca mas de una vez , solo porque tenga mas de una oferta consigo
+                $join->on('ofertas.negocio_id', '=', 'negocios.id')
+                ->whereRaw('ofertas.id = (SELECT MAX(id) FROM ofertas WHERE negocio_id = negocios.id)');
+            })
             ->leftJoin('galeria_negocios', function ($join) {
                 $join->on('galeria_negocios.negocio_id', '=', 'negocios.id')
                     ->whereRaw('galeria_negocios.id = (SELECT MIN(id) FROM galeria_negocios WHERE negocio_id = negocios.id)');
@@ -35,6 +38,7 @@ class VistasFrontController extends Controller
             )->where('negocios.categoria_negocio_id', '=', 1)
             ->groupBy('negocios.id', 'negocios.nombre', 'ofertas.descuento')
             ->orderBy('mediaPuntuacion', 'DESC')
+            ->limit(3)
             ->get();
 
 
@@ -54,7 +58,7 @@ class VistasFrontController extends Controller
 
 
         return response()->json([
-            'mensaje' => 'Top negocios mejor valorados',
+            'mensaje' => 'Top Hostelería mejor valorados y mejor oferta',
             'negocios' => $resultado
 
         ]);
@@ -62,10 +66,12 @@ class VistasFrontController extends Controller
 
     public function topHotelesMejorValo()
     {
-
         $negocios = DB::table('negocios')
             ->join('valoraciones', 'valoraciones.negocio_id', '=', 'negocios.id')
-            ->leftJoin('ofertas', 'ofertas.negocio_id', '=', 'negocios.id')
+            ->leftJoin('ofertas',function ($join){ //de esta manera se evita que el negocio aparezca mas de una vez , solo porque tenga mas de una oferta consigo
+                $join->on('ofertas.negocio_id', '=', 'negocios.id')
+                ->whereRaw('ofertas.id = (SELECT MAX(id) FROM ofertas WHERE negocio_id = negocios.id)');
+            })
             ->leftJoin('galeria_negocios', function ($join) {
                 $join->on('galeria_negocios.negocio_id', '=', 'negocios.id')
                     ->whereRaw('galeria_negocios.id = (SELECT MIN(id) FROM galeria_negocios WHERE negocio_id = negocios.id)');
@@ -78,6 +84,7 @@ class VistasFrontController extends Controller
             )->where('negocios.categoria_negocio_id', '=', 2)
             ->groupBy('negocios.id', 'negocios.nombre', 'ofertas.descuento')
             ->orderBy('mediaPuntuacion', 'DESC')
+            ->limit(3)
             ->get();
 
 
@@ -97,7 +104,7 @@ class VistasFrontController extends Controller
 
 
         return response()->json([
-            'mensaje' => 'Top negocios mejor valorados',
+            'mensaje' => 'Top Hoteles mejor valorados y mejor oferta',
             'negocios' => $resultado
 
         ]);
