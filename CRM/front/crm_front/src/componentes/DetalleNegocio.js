@@ -56,7 +56,7 @@ const DetalleNegocio = () => {
               <div className="row">
                 {negocio.imagenes.map((imagen, index) => (
                   <div className="col-md-4 mb-3" key={index}>
-                    <img src={`http://127.0.0.1:8000/storage/${imagen}`} className="img-fluid rounded" alt={`Foto negocio ${index + 1}`} />
+                    <img src={`http://127.0.0.1:8000${imagen}`} className="img-fluid rounded" alt={`Foto negocio ${index + 1}`} />
                   </div>
                 ))}
               </div>
