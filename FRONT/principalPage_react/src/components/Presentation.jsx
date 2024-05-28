@@ -52,7 +52,7 @@ const Presentation = () => {
 
       <div className="menu_busqueda">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="opciones">Que quieres hacer</label>
+            <label htmlFor="opciones">Que buscas</label>
             <select name="opciones" id="opciones">
               <option value="/restaurantes">Restaurantes</option>
               <option value="/">Hoteles</option>
