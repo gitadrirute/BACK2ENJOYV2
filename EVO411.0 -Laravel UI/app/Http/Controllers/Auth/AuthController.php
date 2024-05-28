@@ -169,7 +169,7 @@ class AuthController extends Controller
 
             $usuarioPerfil = DB::table('usuarios')
                 ->leftJoin('negocios', 'negocios.usuario_id', '=', 'usuarios.id')
-                ->select('usuarios.nombre', 'usuarios.apellidos', 'usuarios.correo', 'negocios.nombre as negocio')
+                ->select('usuarios.nombre', 'usuarios.apellidos','usuarios.nombreUsuario' ,'usuarios.correo', 'negocios.nombre as negocio')
                 ->where('usuarios.id', '=', $usuario->id)
                 ->get();
         }
@@ -178,6 +178,7 @@ class AuthController extends Controller
             $resultado = [
                 'nombre' => $usuario->nombre,
                 'apellidos' => $usuario->apellidos,
+                'nombreUsuario' => $usuario->nombreUsuario,
                 'correo' => $usuario->correo,
                 'negocio' => $usuario->negocio
             ];
