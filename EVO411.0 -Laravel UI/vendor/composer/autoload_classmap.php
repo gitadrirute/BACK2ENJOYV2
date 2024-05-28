@@ -21,8 +21,15 @@ return array(
     'App\\Http\\Controllers\\TransaccionesController' => $baseDir . '/app/Http/Controllers/TransaccionesController.php',
     'App\\Http\\Controllers\\UsuarioController' => $baseDir . '/app/Http/Controllers/UsuarioController.php',
     'App\\Http\\Controllers\\ValoracionesController' => $baseDir . '/app/Http/Controllers/ValoracionesController.php',
+<<<<<<< HEAD
     'App\\Http\\Middleware\\AdminMiddleware' => $baseDir . '/app/Http/Middleware/AdminMiddleware.php',
     'App\\Http\\Middleware\\UsuarioNormalMiddleware' => $baseDir . '/app/Http/Middleware/UsuarioNormalMiddleware.php',
+=======
+    'App\\Http\\Controllers\\Vistas\\VistasFrontController' => $baseDir . '/app/Http/Controllers/Vistas/VistasFrontController.php',
+    'App\\Http\\Middleware\\AdminMiddleware' => $baseDir . '/app/Http/Middleware/AdminMiddleware.php',
+    'App\\Http\\Middleware\\UsuarioNormalMiddleware' => $baseDir . '/app/Http/Middleware/UsuarioNormalMiddleware.php',
+    'App\\Mail\\WelcomeMail' => $baseDir . '/app/Mail/WelcomeMail.php',
+>>>>>>> 79d7ea4b1e55eb76618179767781ae513d563355
     'App\\Models\\CategoriasNegocio' => $baseDir . '/app/Models/CategoriasNegocio.php',
     'App\\Models\\GaleriaNegocios' => $baseDir . '/app/Models/GaleriaNegocios.php',
     'App\\Models\\GaleriaUsuarios' => $baseDir . '/app/Models/GaleriaUsuarios.php',

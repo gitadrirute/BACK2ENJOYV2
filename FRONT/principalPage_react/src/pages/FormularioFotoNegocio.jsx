@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import "../assets/css/FormularioNegocios.css";
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../components/AuthContext';
@@ -10,6 +10,7 @@ const FormularioFotosNegocio = () => {
   const [error, setError] = useState("");
   const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
+  const fileInputRef = useRef(null);
 
   // Redirigir al login si no está autenticado
   if (!isLoggedIn) {
@@ -21,6 +22,7 @@ const FormularioFotosNegocio = () => {
     setValue('imagenes', files);
     const previewUrls = files.map(file => URL.createObjectURL(file));
     setPreviewImages(previewUrls);
+    fileInputRef.current.value = ''; // Forzar actualización del input
   };
 
   const formSubmit = handleSubmit(async (data) => {
@@ -29,12 +31,12 @@ const FormularioFotosNegocio = () => {
       for (const key in data) {
         if (key === 'imagenes') {
           data[key].forEach((file, index) => {
-            formData.append(`imagenes[${index}]`, file);
+            formData.append(`imagenes[]`, file);
           });
         }
       }
 
-      const response = await fetch('http://127.0.0.1:8000/api/upload-photos', {
+      const response = await fetch('http://127.0.0.1:8000/api/subirFotoNegocio', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`
@@ -73,6 +75,7 @@ const FormularioFotosNegocio = () => {
                 multiple
                 {...register("imagenes", { required: "Debe añadir al menos una imagen" })}
                 onChange={handleImagesChange}
+                ref={fileInputRef}
               />
             </div>
             {errors.imagenes && <span className='formError'>{errors.imagenes.message}</span>}

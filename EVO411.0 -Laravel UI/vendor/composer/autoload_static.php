@@ -4,7 +4,11 @@
 
 namespace Composer\Autoload;
 
+<<<<<<< HEAD
 class ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d
+=======
+class ComposerStaticInitc133b312fe180afc0f2b635022ad80ac
+>>>>>>> 79d7ea4b1e55eb76618179767781ae513d563355
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -360,8 +364,13 @@ class ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d
         ),
         'Psr\\Http\\Message\\' => 
         array (
+<<<<<<< HEAD
             0 => __DIR__ . '/..' . '/psr/http-factory/src',
             1 => __DIR__ . '/..' . '/psr/http-message/src',
+=======
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+>>>>>>> 79d7ea4b1e55eb76618179767781ae513d563355
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -550,8 +559,15 @@ class ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d
         'App\\Http\\Controllers\\TransaccionesController' => __DIR__ . '/../..' . '/app/Http/Controllers/TransaccionesController.php',
         'App\\Http\\Controllers\\UsuarioController' => __DIR__ . '/../..' . '/app/Http/Controllers/UsuarioController.php',
         'App\\Http\\Controllers\\ValoracionesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ValoracionesController.php',
+<<<<<<< HEAD
         'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
         'App\\Http\\Middleware\\UsuarioNormalMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/UsuarioNormalMiddleware.php',
+=======
+        'App\\Http\\Controllers\\Vistas\\VistasFrontController' => __DIR__ . '/../..' . '/app/Http/Controllers/Vistas/VistasFrontController.php',
+        'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
+        'App\\Http\\Middleware\\UsuarioNormalMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/UsuarioNormalMiddleware.php',
+        'App\\Mail\\WelcomeMail' => __DIR__ . '/../..' . '/app/Mail/WelcomeMail.php',
+>>>>>>> 79d7ea4b1e55eb76618179767781ae513d563355
         'App\\Models\\CategoriasNegocio' => __DIR__ . '/../..' . '/app/Models/CategoriasNegocio.php',
         'App\\Models\\GaleriaNegocios' => __DIR__ . '/../..' . '/app/Models/GaleriaNegocios.php',
         'App\\Models\\GaleriaUsuarios' => __DIR__ . '/../..' . '/app/Models/GaleriaUsuarios.php',
@@ -6620,9 +6636,15 @@ class ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+<<<<<<< HEAD
             $loader->prefixLengthsPsr4 = ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d::$classMap;
+=======
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc133b312fe180afc0f2b635022ad80ac::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc133b312fe180afc0f2b635022ad80ac::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc133b312fe180afc0f2b635022ad80ac::$classMap;
+>>>>>>> 79d7ea4b1e55eb76618179767781ae513d563355
 
         }, null, ClassLoader::class);
     }
