@@ -46,7 +46,7 @@ function App() {
           <Route path="/generador-codigo" element={<CodigoDescuento />} />
           <Route path="/Card/:id" element={<CasaLola />} />
           <Route path="/pasarela" element={<PasarelaPago />} />
-          <Route path="/upload-photos" element={<FormularioFotosNegocio />} />
+          <Route path="/subirFotos" element={<FormularioFotosNegocio />} />
           <Route path="/perfil" element={<UserProfile />} />
           <Route path="/reseñas/:negocioId" element={<FormularioReseñas />} />
         </Routes>
