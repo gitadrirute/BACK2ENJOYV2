@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('contraseña');
             $table->boolean('validado');
             $table->timestamps();
+            $table->timestamp('email_verified_at')->nullable();
             $table->unsignedBigInteger('rol_usuario_id');
             $table->foreign('rol_usuario_id')->references('id')->on('roles_usuarios');
         
