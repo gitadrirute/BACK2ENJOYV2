@@ -113,7 +113,8 @@ Route::put('/galeriaUsuarios/{galeria}', 'App\Http\Controllers\GaleriaUsuariosCo
 Route::delete('/galeriaUsuarios/{galeria}', 'App\Http\Controllers\GaleriaUsuariosController@destroy');
 
 //VISTAS
-Route::get('/topNegociosMejorValo', 'App\Http\Controllers\Vistas\VistasFrontController@topNegociosMejorValo');
+Route::get('/topHosteleriaMejorValo', 'App\Http\Controllers\Vistas\VistasFrontController@topHosteleriaMejorValo');
+Route::get('/topHotelesMejorValo', 'App\Http\Controllers\Vistas\VistasFrontController@topHotelesMejorValo');
 Route::get('/valoracionesNegocio/{negocio}', 'App\Http\Controllers\Vistas\VistasFrontController@valoracionesNegocio');
 Route::get('/listadoHosteleriaTF', 'App\Http\Controllers\NegocioController@listadoHosteleriaTF');
 Route::get('/listadoHotelesTF', 'App\Http\Controllers\NegocioController@listadoHotelesTF');
