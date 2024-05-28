@@ -283,7 +283,7 @@ class VistasFrontController extends Controller
         }
 
         $foto = new GaleriaNegocios();
-        $foto->rutaImagen = $request->file('rutaImagen')->store('public/ImagenesNegocios');
+        $foto->rutaImagen = $request->file('rutaImagen')->store('ImagenesNegocios', 'public'); // Guardar la imagen en el storage público
         $foto->negocio_id = $recogerNegocioId->id;
 
         $foto->save();

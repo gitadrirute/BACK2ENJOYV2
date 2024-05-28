@@ -27,7 +27,7 @@ const PayPalCheckout = () => {
   };
 
   if (paymentApproved) {
-    navigate("/login");
+    navigate("/");
     return null;
   }
 
@@ -46,7 +46,7 @@ const PayPalCheckout = () => {
                       purchase_units: [
                         {
                           amount: {
-                            value: "5.00", // El monto del pago
+                            value: "10.00", // El monto del pago
                             currency_code: "EUR", // Especificar la moneda como euros
                           },
                         },

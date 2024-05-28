@@ -28,13 +28,9 @@ const FormularioFotosNegocio = () => {
   const formSubmit = handleSubmit(async (data) => {
     try {
       const formData = new FormData();
-      for (const key in data) {
-        if (key === 'imagenes') {
-          data[key].forEach((file, index) => {
-            formData.append(`imagenes[]`, file);
-          });
-        }
-      }
+      data.imagenes.forEach((file, index) => {
+        formData.append('rutaImagen', file);
+      });
 
       const response = await fetch('http://127.0.0.1:8000/api/subirFotoNegocio', {
         method: 'POST',
@@ -51,7 +47,7 @@ const FormularioFotosNegocio = () => {
         navigate('/');
       } else {
         const responseData = await response.json();
-        setError(responseData.message || 'Error al subir las fotos');
+        setError(responseData.mensaje || 'Error al subir las fotos');
       }
     } catch (error) {
       setError('Error de conexión o en el proceso de subida');
@@ -87,7 +83,7 @@ const FormularioFotosNegocio = () => {
               </div>
             )}
             <button type="submit">Subir Fotos</button>
-            <button type="button" onClick={() => navigate('/')}>Volver a Inicio</button>
+            <button type="button" onClick={() => navigate('/pasarela')}>Volver a Inicio</button>
             <p>{error}</p>
           </form>
         </div>

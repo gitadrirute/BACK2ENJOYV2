@@ -1,9 +1,8 @@
 import React from 'react';
-// import './RestaurantCard.css';
 import { useNavigate } from "react-router-dom";
 
-//Se añaden como parametros los datos de la carta
-const HotelCard = ({ imageSrc, discount, name, rating, deliveryTime, description, country }) => {
+//Se aÃ±aden como parametros los datos de la carta
+const HotelCard = ({ imageSrc, discount, name, rating }) => {
     const navigate = useNavigate();
 
     //por lo que se ve redirige al mismo sitio, pero hay que verlo cuando hayan mas
@@ -23,12 +22,8 @@ const HotelCard = ({ imageSrc, discount, name, rating, deliveryTime, description
             <span className="rating-star"><i className="bi bi-star-fill star"></i></span>
             <span className="review-count">{rating}</span>
           </div>
-          <div className="delivery-info">
-            <i className="bi bi-dot"></i> {deliveryTime}
-          </div>
         </div>
-        <p>{description}</p>
-        <p>{country}</p>
+        
       </div>
     </div>
   );

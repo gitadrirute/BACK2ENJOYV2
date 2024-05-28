@@ -14,6 +14,7 @@ const DetalleUsuario = () => {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/detallesUsuario/${id}`); // Llamada a la API
         setUsuario(response.data.usuario); // Guardar los datos del usuario en el estado
+        console.log('Datos del negocio del usuario:', response.data.usuario.rutaImagen);
       } catch (error) {
         setError('No se pudo cargar la información del usuario'); // Manejo de errores
         console.error('Error fetching data: ', error);
@@ -31,6 +32,7 @@ const DetalleUsuario = () => {
     return <div className="text-center mt-5">Cargando...</div>; // Mensaje de carga mientras los datos no están disponibles
   }
 
+  
   return (
     <div className="container mt-5">
       <h1 className="text-center mb-4">Detalles del Usuario</h1>
@@ -50,7 +52,7 @@ const DetalleUsuario = () => {
             <div className="text-center mt-3">
               <h5>Foto de Perfil:</h5>
               <img src={`http://127.0.0.1:8000${usuario.rutaImagen}`} className="img-fluid rounded" alt="Foto de Perfil" style={{ maxWidth: '200px' }} />
-            </div>
+            </div>  
           )}
         </div>
       </div>
