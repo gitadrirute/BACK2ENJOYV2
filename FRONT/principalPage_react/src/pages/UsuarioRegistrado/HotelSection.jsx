@@ -32,7 +32,7 @@ const HotelSection = () => {
         {hotels.map((hotel, index) => (
           <HotelCard
             key={index}
-            imageSrc={hotel.rutaImagen}
+            imageSrc={`http://127.0.0.1:8000${hotel.rutaImagen}`}
             discount={hotel.descuento}
             name={hotel.nombre}
             rating={hotel.mediaPuntuacion}

@@ -79,6 +79,10 @@ margin-left: 110px;
   font-weight: semi-bold;
 }
 
+.rating-star .bi-star-fill {
+  color: yellow; /* Aplica el color amarillo a la estrella */
+}
+
 .review-count {
   margin-left: 5px;
   font-weight: semi-bold;

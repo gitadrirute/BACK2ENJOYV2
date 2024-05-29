@@ -68,5 +68,15 @@
 .card:hover {
   transform: scale(1.05);
 }
-  
+
+/* PAra las estrellas*/
+.star-rating {
+  display: inline-block;
+  font-size: 24px; /* Ajusta el tamaño según tu preferencia */
+  color: gold; /* Establece el color amarillo para las estrellas */
+}
+
+.star {
+  margin-right: 2px; /* Espacio entre las estrellas */
+}
   

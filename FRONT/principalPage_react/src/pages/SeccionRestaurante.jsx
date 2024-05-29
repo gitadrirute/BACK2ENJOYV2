@@ -66,6 +66,18 @@ function SeccionRestaurante() {
     return sorted;
   };
 
+    // Componente para renderizar las estrellas de puntuación
+const StarRating = ({ rating }) => {
+  // Crear un array con 5 elementos para las estrellas
+  const stars = Array.from({ length: 5 }, (_, index) => {
+    // Determinar si la estrella debe estar llena o vacía
+    const starType = rating >= index + 1 ? '★' : '☆';
+    return <span key={index} className="star">{starType}</span>;
+  });
+
+  return <div className="star-rating">{stars}</div>;
+};
+
   return (
     <div className="containerSection" id="product">
       
@@ -91,15 +103,19 @@ function SeccionRestaurante() {
               className="card"
             >
               <div className="card-image-container">
-                <img className="card-image" src={restaurant.rutaImagen || "https://www.comunicare.es/wp-content/uploads/2021/03/crear-pagina-web.jpg"} alt={restaurant.nombre} />
+                <img className="card-image" src={`http://127.0.0.1:8000${restaurant.rutaImagen}` || "https://www.comunicare.es/wp-content/uploads/2021/03/crear-pagina-web.jpg"} alt={restaurant.nombre} />
               </div>
               <div className="card-details">
-                <div className="card-category">{restaurant.categoria}</div>
+                {/* <div className="card-category">hola</div> */}
                 <h2 className="card-title">
                   <strong>{restaurant.nombre}</strong>
                 </h2>
-                <p className="card-text">{restaurant.mediaPuntuacion ? `${restaurant.mediaPuntuacion}€` : 'N/A'} de precio medio</p>
-                <p className="discount-tag">{restaurant.descuento ? `${restaurant.descuento}%` : '0%'}</p>
+                <p className="card-text">
+                  <StarRating rating={restaurant.mediaPuntuacion} /> {restaurant.mediaPuntuacion ? `${restaurant.mediaPuntuacion} / 5.0` : 'N/A'}
+                </p>
+                <p className="discount-tag">{restaurant.descuento ? `${restaurant.descuento}%` : '20%'}</p>
+                <p className="card-text">📍 {restaurant.direccion}</p>
+                <p className="card-text">💬 {restaurant.cantidadValoraciones}</p>
               </div>
             </div>
           ))}

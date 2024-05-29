@@ -12,6 +12,7 @@ const RestaurantSection = () => {
     // Fetch top rated restaurants from the API
     axios.get('http://127.0.0.1:8000/api/topHosteleriaMejorValo')
       .then(response => {
+        console.log(response.data); // Verifica que los datos tienen la propiedad 'id'
         setRestaurants(response.data.negocios);
       })
       .catch(error => {
@@ -32,12 +33,11 @@ const RestaurantSection = () => {
         {restaurants.map((restaurant, index) => (
           <RestaurantCard
             key={index}
-            
-            imageSrc={restaurant.rutaImagen}
-            discount={restaurant.descuento}
+            id={restaurant.id} // Asegúrate de pasar el ID del restaurante
+            imageSrc={`http://127.0.0.1:8000${restaurant.rutaImagen}`}
+            discount={restaurant.descuento ? `${restaurant.descuento}%` : null}
             name={restaurant.nombre}
             rating={restaurant.mediaPuntuacion}
-            description="Short description"
           />
         ))}
       </div>
