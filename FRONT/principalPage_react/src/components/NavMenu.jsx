@@ -82,7 +82,6 @@ export const NavMenu = () => {
 
             </div>
         </header>
-        <hr />
         </>
     );
 };

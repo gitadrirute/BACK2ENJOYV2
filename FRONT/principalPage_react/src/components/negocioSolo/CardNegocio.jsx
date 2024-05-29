@@ -91,12 +91,6 @@ const CardNegocio = () => {
               <img src="../img/swiper Images/malaga1.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 1" />
             </SwiperSlide>
             <SwiperSlide className='swiper-slide'>
-              <img src="../img/swiper Images/malaga2.jpeg" style={{ width: '80%', height: '200px' }} alt="Málaga 2" />
-            </SwiperSlide>
-            <SwiperSlide className='swiper-slide'>
-              <img src="../img/swiper Images/malaga3.jpeg" style={{ width: '80%', height: '200px' }} alt="Málaga 3" />
-            </SwiperSlide>
-            <SwiperSlide className='swiper-slide'>
               <img src="../img/swiper Images/malaga4.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 4" />
             </SwiperSlide>
             <SwiperSlide className='swiper-slide'>

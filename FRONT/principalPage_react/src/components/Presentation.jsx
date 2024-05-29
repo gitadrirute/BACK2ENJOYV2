@@ -18,9 +18,11 @@ const Presentation = () => {
       {/* <!-- Swiper --> */}
       <div className="swiper mySwiper">
             <Swiper
+                spaceBetween={10}
                 loop={true}
+                speed={2000}
                 autoplay={{
-                    delay: 4000, // Intervalo de tiempo en milisegundos (3 segundos)
+                    delay: 3500, // Intervalo de tiempo en milisegundos (3 segundos)
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Navigation, Pagination]}

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useNavigate } from "react-router-dom";
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const PasarelaNegocio = () => {
+const PayPalCheckout = () => {
   const navigate = useNavigate();
   const [paymentApproved, setPaymentApproved] = useState(false);
 
@@ -16,6 +16,7 @@ const PasarelaNegocio = () => {
   const handleApprove = (data, actions) => {
     console.log("Pago aprobado:", data);
     setPaymentApproved(true);
+    localStorage.setItem('paymentApproved', 'true'); // Guardar en localStorage
   };
 
   const handleError = (err) => {
@@ -26,20 +27,39 @@ const PasarelaNegocio = () => {
     console.log("Pago cancelado:", data);
   };
 
-  if (paymentApproved) {/*!CAMBIAR RUTAS ORDEN REGISTRA EMPRESA -- PAGA -- SUBE FOTOS */
-    navigate("/");
+  useEffect(() => {
+    // Bloquear el scroll al cargar el componente
+    document.body.classList.add('no-scroll');
+
+    const handleBeforeUnload = (event) => {
+      if (!paymentApproved) {
+        event.preventDefault();
+        event.returnValue = '';
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => {
+      // Restaurar el scroll al desmontar el componente
+      document.body.classList.remove('no-scroll');
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [paymentApproved]);
+
+  if (paymentApproved) {
+    navigate("/perfil");
     return null;
   }
 
   return (
-    <>
-      <Container className="pasarelaContainer" style={{ minHeight: '80vh' }}>
+    <div className="fixed-container">
+      <Container className="pasarelaContainer">
         <Row className="w-100">
           <Col md={{ span: 6, offset: 3 }}>
             <Card className="text-center" style={{ padding: '20px' }}>
               <Card.Body>
-                <Card.Img src="../img/Logos/logo back2enjoy.png" alt="Logoempresa" />
-                <Card.Title>Realizar Pago</Card.Title>
+                <Card.Img id="imgPasarela" src="../img/Logos/logo back2enjoy.png" alt="Logoempresa" />
+                <Card.Title id="titulo_pasarela">Realizar Pago</Card.Title>
                 <PayPalScriptProvider options={paypalOptions}>
                   <PayPalButtons
                     style={{ layout: "vertical", color: "blue", shape: "rect", label: "paypal" }}
@@ -65,8 +85,8 @@ const PasarelaNegocio = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 
-export default PasarelaNegocio;
+export default PayPalCheckout;

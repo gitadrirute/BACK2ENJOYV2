@@ -38,7 +38,7 @@ const Budget = () => {
             </div>
         
             <div className="budget__img">
-                <img src="./img/Logos/ruta_logo.jpeg" alt="imagen" width="500px"/>
+                <img src="./img/Logos/rutas.jpg" alt="imagen" width="500px"/>
             </div>
         </section>
    </>

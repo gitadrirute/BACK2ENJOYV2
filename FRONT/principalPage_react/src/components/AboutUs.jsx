@@ -44,12 +44,12 @@ const AboutUs = () => {
                         <SwiperSlide className='swiper-slide'>
                             <img src="./img/swiper Images/malaga1.jpg" alt=""/>
                         </SwiperSlide>
-                        <SwiperSlide className='swiper-slide'>
+                        {/* <SwiperSlide className='swiper-slide'>
                             <img src="./img/swiper Images/malaga2.jpeg" alt=""/>
                         </SwiperSlide>
                         <SwiperSlide className='swiper-slide'>
                             <img src="./img/swiper Images/malaga3.jpeg" alt=""/>
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                         <SwiperSlide className='swiper-slide'>
                             <img src="./img/swiper Images/malaga4.jpg" alt=""/>
                         </SwiperSlide>

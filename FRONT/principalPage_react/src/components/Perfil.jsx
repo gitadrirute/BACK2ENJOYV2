@@ -52,6 +52,10 @@ function UserProfile() {
     navigate('/login'); // Redirige al login
   };
 
+  const subirFotos = () =>{
+    navigate("/subirFotos")
+  }
+
   if (loading) {
     return <p>Cargando...</p>;
   }
@@ -68,11 +72,12 @@ function UserProfile() {
   }
 
   return (
-    <div className="container33">
-      <div id="logo" className="logo">
-        {/* Opcional: Incluir logo o imagen */}
-      </div>
-      <div className="rightBox">
+    <>
+    <div class="fondoPerfil">
+      <div className="container33">
+        <div id="logoBox" className="logoBox">
+          <img src="./img/Logos/defaultPerfil.jpg" alt='defaultfoto' />
+        </div>
         <div className="profile">
           <h1 className='h11'>INFORMACIÓN PERSONAL</h1>
           <h2 className='h22'>Nombre</h2>
@@ -89,12 +94,16 @@ function UserProfile() {
               <p>{userData.negocio}</p>
             </>
           )}
-  
           {/* Botón de Cerrar Sesión */}
-          <button onClick={handleLogout} className="clickable_btn">Cerrar Sesión</button>
+          
         </div>
+      <div className='btnGroup'>
+        <button onClick={handleLogout} className="clickable_btn">Cerrar Sesión</button>
+        <button onClick={subirFotos} className="clickable_btn">Subir foto</button>
       </div>
     </div>
+</div>
+    </>
   );
 }
 

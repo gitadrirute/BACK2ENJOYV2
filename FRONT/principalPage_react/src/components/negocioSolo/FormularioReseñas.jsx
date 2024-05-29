@@ -53,6 +53,7 @@ function FormularioReseñas({ negocioId }) {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}` // Añadir el token a la cabecera
                 },
                 body: JSON.stringify(requestData),
             });
