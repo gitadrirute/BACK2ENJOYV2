@@ -119,6 +119,7 @@ header .logo{
   gap: 10px;
   justify-content: center;
   padding: 10px;
+  align-items: center;
 }
 .clickable_btn {
   text-align: center;

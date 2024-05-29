@@ -12,11 +12,9 @@ function Home() {
 
   return (
     <div>
-      <button 
-        onClick={goToProfile} 
-        style={{ backgroundImage: `url(/img/Logos/perfiles.png)` }} 
-        className="image-button">
-      </button>
+      <button onClick={goToProfile} className=" image-button-icon"> 
+  <i className="bi bi-person-circle"></i> 
+  </button>
     </div>
   );
 }

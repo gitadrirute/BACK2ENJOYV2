@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/SeccionRestaurantes_y_hoteles.css";
-import MapCardComponent from "../components/restaurante/Mapa";
+import MapaHotel from "../components/restaurante/MapaHotel";
+
 
 function SeccionHotel() {
   const [hotels, setHotels] = useState([]);
@@ -131,7 +132,7 @@ const StarRating = ({ rating }) => {
         </div>
       </div>
       <div className="map-containerSection">
-        <MapCardComponent/>
+      <MapaHotel/>
       </div>
     </div>
   );
