@@ -1,15 +1,35 @@
 /* FormularioReseñas.css */
-.formulario-container2 {
+.formulario-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     text-align: center; /* Esto asegura que el título y todo el contenido estén centrados */
 }
 
+.formulario-container h2 {
+    color: black; /* Establecer color negro para el h2 */
+}
 
+label{
+    color: black;
+}
+
+
+.texto_comment {
+    width: 80%; /* Hacer el textarea más estrecho */
+    margin: 0 auto 20px auto; /* Centrarse y añadir espacio inferior */
+    display: block; /* Asegurar que se comporta como un bloque */
+    resize: none; /* Desactivar la redimensión */
+    padding: 10px; /* Añadir padding para una mejor apariencia */
+    border: 1px solid #ccc; /* Añadir un borde */
+    border-radius: 4px; /* Bordes redondeados */
+    align-items: center;
+    margin-left: 60px;
+    margin-top: 20px;
+}
 
 .formulario-boton button {
     width: 50%; /* Hace el botón menos ancho, ajusta según necesidades */
@@ -22,8 +42,46 @@
     cursor: pointer;
 }
 
+.comentarios-container {
+    margin-top: 30px;
+    text-align: left; /* Asegura que el texto de los comentarios esté alineado a la izquierda */
+}
 
-/* Estilos adicionales si es necesario */
+.comentarios-lista {
+    list-style-type: none;
+    padding: 0;
+}
 
+.comentario {
+    margin-bottom: 20px;
+}
 
+.comentario-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
 
+.nombre-usuario {
+    font-weight: bold;
+    color: black; /* Establecer color negro para el nombre de usuario */
+}
+
+.fecha-creacion {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.comentario-rating .star {
+    color: gold;
+    margin-right: 2px;
+}
+
+.comentario-texto {
+    margin-top: 5px;
+    color: black; /* Establecer color negro para el texto del comentario */
+}
+
+.comentario-separador {
+    border: 0.5px solid #ccc;
+}

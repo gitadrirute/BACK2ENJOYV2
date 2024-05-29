@@ -5,3 +5,8 @@ input[type=radio]{
 .star{
     cursor: pointer;
 }
+
+.App{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

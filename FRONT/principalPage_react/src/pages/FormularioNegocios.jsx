@@ -41,7 +41,7 @@ const FormularioNegocios = () => {
       if (response.ok) {
         setSuccessMessage(true);
         reset();
-        navigate('/upload-photos');
+        navigate('/subirFotos');
       } else {
         const responseData = await response.json();
         const errorMessage = responseData.mensaje || 'Error al registrar el negocio';
@@ -79,7 +79,7 @@ const FormularioNegocios = () => {
                   required: "El campo NIF es obligatorio",
                   maxLength: { value: 9, message: "El campo NIF no puede tener más de 9 caracteres" },
                   minLength: { value: 9, message: "El campo NIF debe tener 9 caracteres" },
-                  pattern: { value: /[0-9]{8}[A-Za-z]/, message: "El campo NIF debe seguir el formato" }
+                  pattern: { value: /^[A-Za-z][0-9]{8}$/, message: "El campo NIF debe seguir el formato" }
                   /* pattern: { value: /[A-Za-z][0-9]{8}/, message: "El campo NIF debe seguir el formato" } VALIDACION BUENA */
                 })} />
             </div>
@@ -142,8 +142,8 @@ const FormularioNegocios = () => {
               <select name="categoria_negocio_id" {...register("categoria_negocio_id", { required: "Seleccione una categoría de negocio" })}>
                 <option value="">Selecciona una categoría de negocio</option>
                 <option value="1">Bar</option>
-                <option value="2">Restaurante</option>
-                <option value="3">Hotel</option>
+                <option value="1">Restaurante</option>
+                <option value="2">Hotel</option>
               </select>
             </div> <br/>
             <button type="submit">Registrar Negocio</button>

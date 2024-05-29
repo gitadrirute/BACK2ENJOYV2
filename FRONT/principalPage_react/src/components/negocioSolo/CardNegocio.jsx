@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const CardNegocio = () => {
   const [activeTab, setActiveTab] = useState('descripcion');
   const [negocio, setNegocio] = useState(null);
-  const { id } = useParams();
+  const { id } = useParams(); // Obtenemos el id del negocio de los parámetros de la URL
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/api/paginaPrincipalNegocio/${id}`)
@@ -71,7 +71,8 @@ const CardNegocio = () => {
               <br />
               <h3>Opiniones</h3>
               <p>Contenido de opiniones</p>
-              <FormularioReseñas />
+              {/* Pasar el id (negocioId) al componente FormularioReseñas */}
+              <FormularioReseñas negocioId={id} />
             </div>
           </div>
         </div>
