@@ -8,9 +8,9 @@
   --font-color_2: #1d1d1b;
   --secondary-bg: #e6e6e6;
   --box-color:#FFFFFF;
-  --contrast:rgba(118, 255, 221);
-  --contrast_light:rgb(146, 255, 228);
-  --contrast_dark:rgb(95, 206, 178);
+  --contrast:#6296af;
+  --contrast_light:#4782a0;
+  --contrast_dark:#336B87;
   --shadow:#3636366e;
 }
 
@@ -150,7 +150,7 @@ header .logo{
   margin-left: 10px;
 
   text-decoration: none;
-  color: var(--font-color_2);
+  color: var(--font-color);
   background-color: var(--contrast);
   transition: all 0.3s ease-in-out;
   flex: 1;

@@ -26,7 +26,9 @@ const CardNegocio = () => {
 
   return (
     <>
-      <div className="container">
+    <div className='fondoPerfil'>
+
+    <div className="container">
         <br />
         {/* Nav tabs */}
         <ul className="nav nav-tabs" role="tablist">
@@ -102,6 +104,7 @@ const CardNegocio = () => {
           </Swiper>
         </div>
       </div>
+    </div>
     </>
   );
 }
