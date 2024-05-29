@@ -79,7 +79,8 @@ const FormularioNegocios = () => {
                   required: "El campo NIF es obligatorio",
                   maxLength: { value: 9, message: "El campo NIF no puede tener más de 9 caracteres" },
                   minLength: { value: 9, message: "El campo NIF debe tener 9 caracteres" },
-                  pattern: { value: /^[0-9]{8}[A-Za-z]$/, message: "El campo NIF debe seguir el formato" }
+                  pattern: { value: /[0-9]{8}[A-Za-z]/, message: "El campo NIF debe seguir el formato" }
+                  /* pattern: { value: /[A-Za-z][0-9]{8}/, message: "El campo NIF debe seguir el formato" } VALIDACION BUENA */
                 })} />
             </div>
             <div className="input-box">

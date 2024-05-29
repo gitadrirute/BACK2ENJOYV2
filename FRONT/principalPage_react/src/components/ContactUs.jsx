@@ -100,7 +100,7 @@ const ContactUs = () => {
     <>
     <section className="contact" id="contact">
         <div className="contact_form">
-        <h1><b>Contacto</b></h1>
+        <h1>Contacto</h1>
             <form id="form_3" onSubmit={formSubmit} method="post">
             <div className="inputbox">
                 <input 
@@ -204,7 +204,7 @@ const ContactUs = () => {
                         name="spam__contact_form" 
                         id="spam__contact_form"
                         {...register("spam__contact_form")}/> 
-                        Acepto recibir notificaciones de nuevos productos
+                        _Acepto recibir notificaciones de nuevos productos
                 </label> <br/><br/>
                 <label>
                     <input type="checkbox" name="terms__contact_form"
@@ -215,7 +215,7 @@ const ContactUs = () => {
                                 message: "Debes aceptar los terminos de privacidad"
                             }
                         }
-                    )} /> Acepto terminos de privacidad *
+                    )} />_Acepto terminos de privacidad *
                     
                 </label>
                 <br/>

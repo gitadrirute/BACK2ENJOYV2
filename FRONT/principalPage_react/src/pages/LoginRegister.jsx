@@ -106,7 +106,7 @@ const LoginRegister = (props) => {
 
   return (
     <>
-      <section className="mainSection">
+      <section className="mainSection" id="product">
         <div className={`wrapper${action}`}>
           <div className="form-box login">
             <form onSubmit={handleLogin} style={{ display: isRegistering ? "none" : "block" }}>

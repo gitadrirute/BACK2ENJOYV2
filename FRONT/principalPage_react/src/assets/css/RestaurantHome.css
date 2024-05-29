@@ -86,7 +86,7 @@ button {
 
   .label-container h2 {
     color: #111;
-    font-family: Poppins, serif;
+    /* font-family: Poppins, serif; */
     margin-right: auto;
     font-size: 18px;
     font-weight: bold;

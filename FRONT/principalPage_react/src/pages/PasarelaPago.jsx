@@ -32,12 +32,14 @@ const PayPalCheckout = () => {
   }
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+    <>
+    <Container className="pasarelaContainer" style={{ minHeight: '80vh' }}>
       <Row className="w-100">
         <Col md={{ span: 6, offset: 3 }}>
           <Card className="text-center" style={{ padding: '20px' }}>
             <Card.Body>
-              <Card.Title>Realizar Pago</Card.Title>
+              <Card.Img id="imgPasarela" src="../img/Logos/logo back2enjoy.png" alt="Logoempresa" />
+              <Card.Title id="titulo_pasarela">Realizar Pago</Card.Title>
               <PayPalScriptProvider options={paypalOptions}>
                 <PayPalButtons
                   style={{ layout: "vertical", color: "blue", shape: "rect", label: "paypal" }}
@@ -63,6 +65,7 @@ const PayPalCheckout = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

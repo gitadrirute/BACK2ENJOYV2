@@ -20,7 +20,7 @@
   width: 50%; /* Reducir el ancho del contenedor del mapa */
 }
 
- .card {
+.card {
   display: flex;
   border: 1px solid #ccc;
   border-radius: 8px;

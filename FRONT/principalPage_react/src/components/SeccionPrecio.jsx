@@ -2,7 +2,9 @@ import React from 'react'
 import CartaPrecio from './CartaPrecio'
 import '../assets/css/SeccionPrecio.css'
 
+
 const SeccionPrecio = () => {
+  
 
   const invitado = [
     'Ver reseñas',

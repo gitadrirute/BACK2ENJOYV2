@@ -8,7 +8,7 @@
   height: auto; /* Cambiado de 420px a auto para adaptarse al contenido */
   padding: 20px; /* Agrega padding para no pegar el contenido a los bordes */
   margin: 5% auto 80px; /* Simplificado para claridad */
-  box-shadow: 2px 5px 20px rgba(119, 119, 119, 0.5);
+  /* box-shadow: 2px 5px 20px rgba(119, 119, 119, 0.5); */
 }
 
   
@@ -18,7 +18,6 @@
   align-items: flex-start; /* Cambiar a center si se desea centrar todo */
   width: 100%;
 }
-
   
   .tab-pane-content p, .tab-pane-content h3 {
     margin: 0.5rem 0;

@@ -111,13 +111,13 @@ button[type="submit"]:hover {
 }
 
 .g-recaptcha{
-  margin-left: 65px;
-  margin-top: 20px;
+  margin-left: 1px;
+  margin-top: 15px;
   margin-bottom: 20px;
 }
 #reCaptcha{
 
-  margin: 100px;
+  margin: 90px;
 
 }
 .register-link {

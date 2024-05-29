@@ -83,8 +83,8 @@ const FormularioFotosNegocio = () => {
                 ))}
               </div>
             )}
-            <button type="submit">Subir Fotos</button>
-            <button type="button" onClick={() => navigate('/pasarela')}>Volver a Inicio</button>
+            <button className='clickable_btn' type="submit">Subir Fotos</button>
+            <button className='clickable_btn' type="button" onClick={() => navigate('/')}>Volver a Inicio</button>{/* PONIA /pasarela ??? */}
             <p>{error}</p>
           </form>
         </div>

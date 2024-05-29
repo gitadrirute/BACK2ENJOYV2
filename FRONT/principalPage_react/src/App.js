@@ -21,6 +21,7 @@ import SeccionHotel from './pages/SeccionHotel';
 import UserProfile from './components/Perfil';
 import FormularioReseñas from './components/negocioSolo/FormularioReseñas';
 import CardNegocio from './components/negocioSolo/CardNegocio';
+import PasarelaNegocio from './pages/pasarelaPagoNegocio';
 
 function App() {
   const HomeOrDashboard = () => {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/generador-codigo" element={<CodigoDescuento />} />
           <Route path="/Card/:id" element={<CasaLola />} />
           <Route path="/pasarela" element={<PasarelaPago />} />
+          <Route path="/pasarelaNegocio" element={<PasarelaNegocio/>} />
           <Route path="/subirFotos" element={<FormularioFotosNegocio />} />
           <Route path="/perfil" element={<UserProfile />} />
           <Route path="/reseñas/:negocioId" element={<FormularioReseñas />} />

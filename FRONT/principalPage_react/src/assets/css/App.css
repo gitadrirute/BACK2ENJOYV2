@@ -2,7 +2,7 @@
 
 /* VARIABLES GLOBALES*/
 :root{
-  --main-color: #434343;
+  --main-color: #1b202b;
   --background-color: #FFFFFF;
   --font-color: #FFFFFF;
   --font-color_2: #1d1d1b;
@@ -26,8 +26,18 @@ body {
   overflow-x: hidden;
 }
 
+.card-body{
+  width: 100%;
+}
 
+#imgPasarela{
+  width: 50%;
+  margin-bottom: 20px;
+}
 
+#titulo_pasarela{
+  margin-bottom: 20px;
+}
 /*-------boton ir arriba-------*/
 .ir-arriba {
   display: block;
@@ -98,6 +108,7 @@ header .logo{
   align-items: center;
   background: url("../../../public/img/fotosMlg/bg6.jpeg") no-repeat;
   background-size: cover;
+  padding: 250px;
 }
 
 /*--------------- Botones ------------------*/
@@ -374,30 +385,6 @@ header .logo{
 
 .advantages__card p{
   margin: 30px;
-}
-
-.call_us_container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  padding: 85px 20px 0px 20px;
-}
-.call_us{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  width: 700px;
-  color: #fff;
-  font-size: 25px;
-  background-color: var(--main-color);
-  border: 2px solid var(--secondary-bg);
-  box-shadow: 0 1px 10px var(--shadow);
-  border-radius: 30px;
-  padding: 10px 80px 45px 80px;
 }
 
 
@@ -678,7 +665,7 @@ input{
   border: 1px solid var(--shadow);
   outline: none;
   background: none;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
   font-size: 1.2em;
   background: var(--secondary-bg);
@@ -749,22 +736,24 @@ DARLE DIFERENTES ALTURAS Y ALGO DE CHISPA
   max-width: 1000px;
   margin: 0 auto;
   padding: 10px 0 60px 0 ;
- 
   border-radius: 20px;
 }
 
 .faq-section h2{
   text-align: center;
   font-size: 45px;
+  margin: 30px;
 }
 
 .faq {
   margin-bottom: 20px;
   background-color: var(--main-color);
   border-radius: 10px;
-  padding: 5px;
+  padding: 20px;
+  /* height: 50px; */
   cursor: pointer;
   color: var(--font-color);
+  align-content: center;
 }
 
 .faq:hover{
@@ -782,100 +771,6 @@ DARLE DIFERENTES ALTURAS Y ALGO DE CHISPA
   padding-left: 30px;
   padding-right: 30px;
 }
-
-/* ------------- zona newsletter -----------*/
-
-.NewsLetter_section{
-  margin: 20px 30px 127px 30px;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: 45% 55%;
-  grid-template-rows: 100%;
-  justify-content: center;
-  align-items: center;
-  background: var(--secondary-bg);
-  border-radius: 20px;
-  
-}
-
-.NewsLetter_container{
-  display: flex;
-  justify-content: end; 
-  align-items: center; 
-  /* background: red; */
-  
-}
-
-.NewsLetter_info{
-  width: 400px;
-  margin-right: 60px;
-  padding-bottom: 25px;
-  /* background: green; */
-}
-
-
-#newsletter_form input[type="text"]{
-  text-align: left;
-  position: absolute;
-  width: 20%;
-  border: 1px solid var(--shadow);
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 1.2em;
-  background: var(--background-color);
-}
-
-#newsletter_form p{
-  font-size: 12px;
-}
-
-
-
-#newsletter_form #newsletter_captcha{
-  margin-bottom: 15px;
-}
-
-#submitNewsletter{
-  margin-top: 15px
-}
-.NewsLetter_cards{
-  /* background: blue; */
-  /* padding: 20px; */
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 50% 50%;
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
-}
-
-.NewsLetter_card{
-  width: 300px;
-  height: 150px;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 20px;
-  color: #fff;
-  background-color: var(--main-color);
-  border: 1px solid var(--main-color);
-}
-
-.NewsLetter_card img{
-  width: 20px;
-}
-
-.NewsLetter_card h3{
-  font-size: 14px;
-}
-
-.NewsLetter_card p{
-  padding: 0px 50px 20px 50px;
-  margin-bottom: 40px;
-  font-size: 10px;
-}
-
-
-/* ------------- fin zona newsletter -----------*/
 
 footer {
   

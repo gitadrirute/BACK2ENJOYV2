@@ -2,26 +2,41 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import React from 'react';
 import 'swiper/css';
+import { Link } from 'react-router-dom';
 // import 'swiper/css/pagination';
 // import 'swiper/css/autoplay';
 // import 'swiper/css/navigation';
 // import '../assets/css/App.css';
+
 const AboutUs = () => {
+
+    // Función para manejar el desplazamiento suave a una sección específica
+    const handleScrollToSection = (id) => {
+        setTimeout(() => {
+            // Encuentra la sección de destino por su ID
+            const targetSection = document.getElementById(id);
+
+            // Desplázate suavemente a la sección de destino
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                });
+            }
+        }, 0);
+    };
+
     return (
         <section id="about_us" className="about_us">
-            <h1 className="about_us__title">¡Unete a Back2enjoy!</h1>
+            <h1 className="about_us__title">¡Únete a Back2enjoy!</h1>
             <div className="about_us__container">
                 <div className="about_us__img">
                     <Swiper
-                        //slidesPerView={1}
                         spaceBetween={10}
-                        //pagination={{ clickable: true }}
-                        //navigation
-                        loop = {true}
+                        loop={true}
                         speed={2000}
                         autoplay={{
-                            delay: 3000, // Intervalo de tiempo en milisegundos (3 segundos)
-                            disableOnInteraction: false, // Para que no se desactive al interactuar
+                            delay: 3000,
+                            disableOnInteraction: false,
                         }}
                         modules={[Autoplay, Pagination, Navigation]}
                         className="mySwiper"
@@ -52,8 +67,20 @@ const AboutUs = () => {
                     <p>Con una combinación de tecnología innovadora y conocimiento local, nos esforzamos por ofrecerte una guía completa y personalizada para explorar los rincones más fascinantes de Málaga. Desde restaurantes ocultos hasta atracciones menos conocidas, estamos aquí para ayudarte a descubrir los secretos mejor guardados de esta encantadora ciudad.</p>
                     <p>Únete a nosotros en esta emocionante aventura y haz que tu viaje a Málaga sea inolvidable. Descubre lo que BackToEnjoy puede hacer por ti:</p>
                     <div className="btns_container">
-                        <a className="clickable_btn" href="#contact"><b>Contacto</b></a>
-                        <a className="clickable_btn" target="_blank" href="#budget"><b>Registrate ahora</b></a>
+                        <Link
+                            className="clickable_btn"
+                            to="#contact"
+                            onClick={() => handleScrollToSection('contact')}
+                        >
+                            <b>Contacto</b>
+                        </Link>
+                        <Link
+                            className="clickable_btn"
+                            to="/login"
+                            onClick={() => handleScrollToSection('product')}
+                        >
+                            <b>Regístrate ahora</b>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -61,4 +88,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs
+export default AboutUs;

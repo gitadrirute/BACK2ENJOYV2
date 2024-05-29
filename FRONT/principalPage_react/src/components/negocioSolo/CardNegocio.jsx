@@ -26,38 +26,6 @@ const CardNegocio = () => {
 
   return (
     <>
-      {/* Swiper */}
-      <div className="swiper mySwiper">
-        <Swiper
-          loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay, Navigation, Pagination]}
-          className="mySwiper"
-        >
-          <SwiperSlide className='swiper-slide'>
-            <img src="../img/swiper Images/malaga1.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 1" />
-          </SwiperSlide>
-          <SwiperSlide className='swiper-slide'>
-            <img src="../img/swiper Images/malaga2.jpeg" style={{ width: '80%', height: '200px' }} alt="Málaga 2" />
-          </SwiperSlide>
-          <SwiperSlide className='swiper-slide'>
-            <img src="../img/swiper Images/malaga3.jpeg" style={{ width: '80%', height: '200px' }} alt="Málaga 3" />
-          </SwiperSlide>
-          <SwiperSlide className='swiper-slide'>
-            <img src="../img/swiper Images/malaga4.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 4" />
-          </SwiperSlide>
-          <SwiperSlide className='swiper-slide'>
-            <img src="../img/swiper Images/malaga5.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 5" />
-          </SwiperSlide>
-          <SwiperSlide className='swiper-slide'>
-            <img src="../img/swiper Images/malaga6.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 6" />
-          </SwiperSlide>
-        </Swiper>
-      </div>
-
       <div className="container">
         <br />
         {/* Nav tabs */}
@@ -106,6 +74,37 @@ const CardNegocio = () => {
               <FormularioReseñas />
             </div>
           </div>
+        </div>
+        {/* Swiper */}
+      <div className="swiper mySwiper">
+        <Swiper
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay, Navigation, Pagination]}
+            className="mySwiper"
+          >
+            <SwiperSlide className='swiper-slide'>
+              <img src="../img/swiper Images/malaga1.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 1" />
+            </SwiperSlide>
+            <SwiperSlide className='swiper-slide'>
+              <img src="../img/swiper Images/malaga2.jpeg" style={{ width: '80%', height: '200px' }} alt="Málaga 2" />
+            </SwiperSlide>
+            <SwiperSlide className='swiper-slide'>
+              <img src="../img/swiper Images/malaga3.jpeg" style={{ width: '80%', height: '200px' }} alt="Málaga 3" />
+            </SwiperSlide>
+            <SwiperSlide className='swiper-slide'>
+              <img src="../img/swiper Images/malaga4.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 4" />
+            </SwiperSlide>
+            <SwiperSlide className='swiper-slide'>
+              <img src="../img/swiper Images/malaga5.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 5" />
+            </SwiperSlide>
+            <SwiperSlide className='swiper-slide'>
+              <img src="../img/swiper Images/malaga6.jpg" style={{ width: '80%', height: '200px' }} alt="Málaga 6" />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </>

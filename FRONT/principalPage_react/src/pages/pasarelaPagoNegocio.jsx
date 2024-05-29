@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const PayPalCheckout = () => {
+const PasarelaNegocio = () => {
   const navigate = useNavigate();
   const [paymentApproved, setPaymentApproved] = useState(false);
 
@@ -26,44 +26,47 @@ const PayPalCheckout = () => {
     console.log("Pago cancelado:", data);
   };
 
-  if (paymentApproved) {
+  if (paymentApproved) {/*!CAMBIAR RUTAS ORDEN REGISTRA EMPRESA -- PAGA -- SUBE FOTOS */
     navigate("/");
     return null;
   }
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
-      <Row className="w-100">
-        <Col md={{ span: 6, offset: 3 }}>
-          <Card className="text-center" style={{ padding: '20px' }}>
-            <Card.Body>
-              <Card.Title>Realizar Pago</Card.Title>
-              <PayPalScriptProvider options={paypalOptions}>
-                <PayPalButtons
-                  style={{ layout: "vertical", color: "blue", shape: "rect", label: "paypal" }}
-                  createOrder={(data, actions) => {
-                    return actions.order.create({
-                      purchase_units: [
-                        {
-                          amount: {
-                            value: "10.00", // El monto del pago
-                            currency_code: "EUR", // Especificar la moneda como euros
+    <>
+      <Container className="pasarelaContainer" style={{ minHeight: '80vh' }}>
+        <Row className="w-100">
+          <Col md={{ span: 6, offset: 3 }}>
+            <Card className="text-center" style={{ padding: '20px' }}>
+              <Card.Body>
+                <Card.Img src="../img/Logos/logo back2enjoy.png" alt="Logoempresa" />
+                <Card.Title>Realizar Pago</Card.Title>
+                <PayPalScriptProvider options={paypalOptions}>
+                  <PayPalButtons
+                    style={{ layout: "vertical", color: "blue", shape: "rect", label: "paypal" }}
+                    createOrder={(data, actions) => {
+                      return actions.order.create({
+                        purchase_units: [
+                          {
+                            amount: {
+                              value: "10.00", // El monto del pago
+                              currency_code: "EUR", // Especificar la moneda como euros
+                            },
                           },
-                        },
-                      ],
-                    });
-                  }}
-                  onApprove={handleApprove}
-                  onError={handleError}
-                  onCancel={handleCancel}
-                />
-              </PayPalScriptProvider>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+                        ],
+                      });
+                    }}
+                    onApprove={handleApprove}
+                    onError={handleError}
+                    onCancel={handleCancel}
+                  />
+                </PayPalScriptProvider>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 
-export default PayPalCheckout;
+export default PasarelaNegocio;
