@@ -49,8 +49,7 @@ const CodigoDescuento = () => {
               <img src="/img/restaurante/descuento1.png" alt="Descuento" className="imagen-descuento" />
               <div className="texto_descuento">
                 <p className="info_descuento">
-                  Obtén hasta un<br />
-                  <span className="font-bold">20% de descuento</span>
+                  <span className="font-bold">Obtén tu oferta!</span>
                 </p>
               </div>
             </div>
