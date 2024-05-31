@@ -1,0 +1,15 @@
+
+/* .swiper-image {
+  width: 100%;
+  height: 400px; 
+  object-fit: cover; 
+} */
+
+  
+
+  .swiper-image {
+    width: 100%;
+    height: auto;
+    max-height: 600px; 
+    object-fit: cover; 
+  }
