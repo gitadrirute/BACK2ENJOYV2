@@ -6,10 +6,9 @@ import GeneradorCodigo from './CodigoDescuento';
 import FormularioReseñas from './FormularioReseñas';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import '../../assets/css/SwiperNegocio.css'
+import '../../assets/css/SwiperNegocio.css';
 import 'swiper/css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 const CardNegocio = () => {
   const [activeTab, setActiveTab] = useState('descripcion');

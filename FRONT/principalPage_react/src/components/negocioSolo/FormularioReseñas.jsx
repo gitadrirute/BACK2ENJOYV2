@@ -31,8 +31,9 @@ function FormularioReseñas({ negocioId }) {
         event.preventDefault();
 
         if (!isLoggedIn) {
-            setMensaje('Usuario no autenticado');
-            console.error('Usuario no autenticado');
+            alert('Debes iniciar sesión para escribir una reseña.');
+            setRating(null);
+            setComment('');
             return;
         }
 
@@ -52,7 +53,7 @@ function FormularioReseñas({ negocioId }) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`// Añadir el token a la cabecera
+                    'Authorization': `Bearer ${token}` // Añadir el token a la cabecera
                 },
                 body: JSON.stringify(requestData),
             });
