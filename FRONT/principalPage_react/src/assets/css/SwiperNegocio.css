@@ -7,9 +7,31 @@
 
   
 
-  .swiper-image {
+/*   .swiper-image {
     width: 100%;
     height: auto;
     max-height: 600px; 
     object-fit: cover; 
-  }
+  } */
+
+/* CardNegocio.css */
+.swiper-container {
+  width: 500PX;
+  height: 400PX; /* Aumenta la altura del contenedor para ver más de la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Asegura que las imágenes no se desborden */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-image {
+  width: auto; /* Ajusta la anchura automáticamente */
+  height: auto; /* La altura ocupa todo el contenedor */
+  object-fit: contain; /* Esto asegurará que las imágenes se vean completas */
+}

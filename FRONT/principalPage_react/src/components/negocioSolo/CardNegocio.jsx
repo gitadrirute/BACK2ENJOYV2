@@ -10,6 +10,7 @@ import '../../assets/css/SwiperNegocio.css'
 import 'swiper/css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 const CardNegocio = () => {
   const [activeTab, setActiveTab] = useState('descripcion');
   const [negocio, setNegocio] = useState(null);
@@ -33,6 +34,24 @@ const CardNegocio = () => {
       <div className='fondoPerfil'>
         <div className="container">
           <br />
+          {/* Swiper */}
+          <div className="swiper-container">
+            <Swiper
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              modules={[Autoplay, Navigation, Pagination]}
+              className="mySwiper"
+            >
+              {imagenes.map((imagen, index) => (
+                <SwiperSlide key={index} className='swiper-slide'>
+                  <img src={`http://127.0.0.1:8000${imagen}`} className="swiper-image" alt={`Imagen ${index + 1}`} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
           {/* Nav tabs */}
           <ul className="nav nav-tabs" role="tablist">
             <li className="nav-item">
@@ -52,7 +71,6 @@ const CardNegocio = () => {
               </button>
             </li>
           </ul>
-
           {/* Tab panes */}
           <div className="tab-content">
             <div className={`container tab-pane ${activeTab === 'descripcion' ? 'active' : 'fade'}`}>
@@ -80,24 +98,6 @@ const CardNegocio = () => {
                 <FormularioReseñas negocioId={id} />
               </div>
             </div>
-          </div>
-          {/* Swiper */}
-          <div className="swiper mySwiper">
-            <Swiper
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              modules={[Autoplay, Navigation, Pagination]}
-              className="mySwiper"
-            >
-              {imagenes.map((imagen, index) => (
-                <SwiperSlide key={index} className='swiper-slide'>
-                  <img src={`http://127.0.0.1:8000${imagen}`} className="swiper-image" alt={`Imagen ${index + 1}`} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
           </div>
         </div>
       </div>
