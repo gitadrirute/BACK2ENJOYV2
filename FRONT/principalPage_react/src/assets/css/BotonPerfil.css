@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: none;
   width: 55px; /* Anchura fija */
   height: 55px; /* Altura fija */
   border-radius: 50%; /* Hace que el fondo sea completamente redondo */
@@ -9,9 +10,5 @@
 }
 
 .image-button-icon:hover {
-  border: 1px solid var(--shadow);
-  background: var(--contrast_dark);
-  color: var(--font-color);
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
-  transform: translateY(3px); /* Incrementa la sombra al hacer hover/focus */
+  color: var(--contrast_dark);
 }

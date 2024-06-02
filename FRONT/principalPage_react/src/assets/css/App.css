@@ -142,7 +142,7 @@ header .logo{
 }
 .clickable_btn {
   text-align: center;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 10px;
   border: 1px solid var(--shadow);
   /* margin: 10px; */

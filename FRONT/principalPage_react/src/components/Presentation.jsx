@@ -20,9 +20,9 @@ const Presentation = () => {
             <Swiper
                 spaceBetween={10}
                 loop={true}
-                speed={2000}
+                speed={4000}
                 autoplay={{
-                    delay: 3500, // Intervalo de tiempo en milisegundos (3 segundos)
+                    delay: 5000, // Intervalo de tiempo en milisegundos (3 segundos)
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay, Navigation, Pagination]}

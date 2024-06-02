@@ -51,6 +51,7 @@
   margin-bottom: 15px;
 }
 
+
 .fondoPerfil{
   /* Basic dimensions and centering */
   padding: 100px;
@@ -59,9 +60,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Dark mode colors and gradient */
-  background: #f0f0f0; /* Fallback for browsers that don't support gradients */
+  background: #f6f6f6c1;
+}
+/*
+  /* Dark mode colors and gradient 
+  background: #f0f0f0; /* Fallback for browsers that don't support gradients 
   background: linear-gradient(
     135deg,
     #f0f0f0 25%,
@@ -74,7 +77,7 @@
   );
   background-size: 40px 40px;
 
-  /* Animation */
+  /* Animatio
   animation: move 3s linear infinite;
 }
 
@@ -86,6 +89,7 @@
     background-position: 40px 40px;
   }
 }
+*/
 
 
 
