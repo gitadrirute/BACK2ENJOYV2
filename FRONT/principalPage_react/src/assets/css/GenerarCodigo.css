@@ -27,11 +27,15 @@
 .btnCerrar {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #007bff;
+  /* background-color: #007bff; */
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.btnCerrar:hover {
+  box-shadow:inset 1px 1px black;
 }
 
 .btnContainer {
@@ -90,4 +94,23 @@
   margin: 0; /* Elimina el margen por defecto */
   font-size: 0.875rem; /* Tamaño de la fuente más pequeño */
   color: #666; /* Color del texto de las condiciones */
+}
+
+/* Seccion botones no registrados*/
+
+#botones_popup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn_popup{
+  color: #fff;
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.btn_popup:hover{
+ box-shadow:inset 1px 1px black;
 }

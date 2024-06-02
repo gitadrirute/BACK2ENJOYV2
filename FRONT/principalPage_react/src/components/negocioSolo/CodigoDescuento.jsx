@@ -68,8 +68,10 @@ const CodigoDescuento = () => {
           <div className="popup-inner">
             <h2>Lo sentimos</h2>
             <p>Pero tienes que registrarte para obtener un código de descuento.</p>
-            <button id="btnCerrarNoRegistrado" className="btnCerrar">Cerrar</button>
-            <button id="btnRegistrarse" className="btnRegistrarse">Registrarse</button>
+            <div id='botones_popup'>
+              <button className='btn_popup' id="btnCerrarNoRegistrado" >Cerrar</button>
+              <button className='btn_popup' id="btnRegistrarse" >Registrarse</button>
+            </div>
           </div>
         </div>
       </div>
