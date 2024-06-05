@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "02f2c9bc-17a8-49ec-b8d4-b1361e9ef1ce",
+		"name": "GESTION DE NEGOCIOS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34500999"
+	},
+	"item": [
+		{
+			"name": "Crear un negocio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"bar waniwani\",\r\n    \"NIF\":\"U11502123\",\r\n    \"direccion\": \"Avenida 84\",\r\n    \"telefono\": 970813653,\r\n    \"sitioWeb\": \"https://barWANIWANI.es\",\r\n    \"horario\": \"12:00 - 18:00\",\r\n    \"ubicacion\": \"Malaga\",\r\n    \"informacion\": \"El mejor bar del pueblo\",\r\n    \"validado\": false,\r\n    \"categoria_negocio_id\": 1\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/registroNegocio",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"registroNegocio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar un negocio",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "k5Gwl4Tes3ZABBZDM9Na1Av3KIUHKPeQTE7WB4OL",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaAlta\": \"2023-04-15\",\r\n    \"fechaBaja\": \"2024-06-15\",\r\n    \"usuario_id\": \"1\",\r\n\t\"metodo_pago_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/historialesPremium/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"historialesPremium",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar Negocio",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "k5Gwl4Tes3ZABBZDM9Na1Av3KIUHKPeQTE7WB4OL",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/validarNegocio/13",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"validarNegocio",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todos los negocios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/negocios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"negocios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar un negocio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un negocio",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "aUuTptO4r3umeEMT4qoMm7fYpenjIrrrkanMK9xc",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/negocios/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"negocios",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

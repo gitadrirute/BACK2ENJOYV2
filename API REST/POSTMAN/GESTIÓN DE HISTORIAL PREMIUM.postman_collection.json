@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "cee5f46f-bd17-4c01-8039-8c6d9d458b0b",
+		"name": "GESTIÓN DE HISTORIAL PREMIUM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34500999"
+	},
+	"item": [
+		{
+			"name": "Crear un historial premium",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "TEJhDluVoBrwofSbzVQVnraxl8LfVY8oiPvTffq0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaAlta\": \"2024-04-15\",\r\n    \"fechaBaja\": \"2024-06-15\",\r\n    \"usuario_id\": 1,\r\n\t\t\"metodo_pago_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/historialesPremium",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"historialesPremium"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar un historial premium",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "k5Gwl4Tes3ZABBZDM9Na1Av3KIUHKPeQTE7WB4OL",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaAlta\": \"2023-04-15\",\r\n    \"fechaBaja\": \"2024-06-15\",\r\n    \"usuario_id\": \"1\",\r\n\t\"metodo_pago_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/historialesPremium/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"historialesPremium",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todos los historiales premium",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar un historial premium",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un historial premium",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "aUuTptO4r3umeEMT4qoMm7fYpenjIrrrkanMK9xc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/metodosPago/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"metodosPago",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

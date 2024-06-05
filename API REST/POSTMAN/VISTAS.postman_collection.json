@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "65d78e31-82fc-49d7-bb09-33bf215ba0f8",
+		"name": "VISTAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34500999"
+	},
+	"item": [
+		{
+			"name": "Mostrar todos los bares y restaurantes validados con sus fotos, categoria, propietario etc estilo THE FORK",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/listadoHosteleriaTF",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"listadoHosteleriaTF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Añadir valoración de un usuario a un negocio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valoracion\": 5,\r\n    \"comentario\": \"Todo execelente, nada que criticar\",\r\n    \"negocio_id\": 9\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/anadirValoracion",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"anadirValoracion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todos los hoteles validados con sus fotos, categoria, propietario etc estilo THE FORK",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/listadoHotelesTF",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"listadoHotelesTF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top Hosteleria mejor valorados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/topHosteleriaMejorValo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"topHosteleriaMejorValo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top Hotelería mejor valorados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/topHotelesMejorValo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"topHotelesMejorValo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagina principal de cada negocio",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/paginaPrincipalNegocio/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"paginaPrincipalNegocio",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reseñas del negocio",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/valoracionesNegocio/9",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"valoracionesNegocio",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subir foto del negocio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "rutaImagen[]",
+							"type": "file",
+							"src": "/C:/Users/6003076/Pictures/Screenshots/518332246.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/subirFotoNegocio",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"subirFotoNegocio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

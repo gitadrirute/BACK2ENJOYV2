@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "b8c8c0fb-1bdd-4951-910f-39a5d0bd9176",
+		"name": "GESTIÓN DE USUARIOS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34500999"
+	},
+	"item": [
+		{
+			"name": "Crear un usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"juanjo\",\r\n    \"apellidos\": \"jimenez\",\r\n    \"nombreUsuario\": \"juanjo5656\",\r\n    \"DNI\": \"76300913Y\",\r\n    \"correo\": \"useee3r@mielda6.com\",\r\n    \"contraseña\": \"Estofao1*\",\r\n    \"contraseña_confirmation\": \"Estofao1*\",\r\n    \"validado\": 0,\r\n    \"rol_usuario_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "rQGe1h1tJX6QIi29vSJanSaxq7PGcc1k7L8i6w7c",
+						"type": "text"
+					},
+					{
+						"key": "Acce",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Juan\",\r\n    \"apellidos\": \"Barrios\",\r\n    \"nombreUsuario\": \"Juan2000\",\r\n    \"DNI\": \"60151914D\",\r\n    \"correo\": \"Juan@gmail.com\",\r\n    \"contraseña\": \"Estofao1*\",\r\n    \"contraseña_confirmation\": \"Estofao1*\",\r\n    \"validado\": 1,\r\n    \"rol_usuario_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/registro",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Set global variable 'token' if status is 200\", function () {\r",
+							"  if (pm.response.code === 200) {\r",
+							"    pm.globals.set(\"token\", pm.response.json()[\"token de acceso\"]);\r",
+							"  }\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "rQGe1h1tJX6QIi29vSJanSaxq7PGcc1k7L8i6w7c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"nombreUsuario\": \"Juan2000\",\r\n    \"contraseña\": \"Estofao1*\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "30|dC0UdO9ulcC2RCrpmw3gfOWclsssYVb5lmNtP9Budfd4d381",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "rQGe1h1tJX6QIi29vSJanSaxq7PGcc1k7L8i6w7c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validar un usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "rQGe1h1tJX6QIi29vSJanSaxq7PGcc1k7L8i6w7c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/validarUsuario/17",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"validarUsuario",
+						"17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Perfil de Usuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "13|AwxrVHhLZGJC6RGJdJcep93lSzYL6bYcyLR8FYU6ac08e4d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/perfilUsuario",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"perfilUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar un usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "k5Gwl4Tes3ZABBZDM9Na1Av3KIUHKPeQTE7WB4OL",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\": 2,\r\n    \"nombre\": \"Paquillo\",\r\n     \"apellidos\": \"rute no se que mas\",\r\n    \"nombreUsuario\": \"Paco34\",\r\n    \"DNI\": \"76300000x\",\r\n    \"correo\": \"Paco@gmail.com\",\r\n    \"contraseña\": \"$2y$12$SFLEH2UisPAScVHuuh89d8bOqiPz2GrzA/rdfOLJrBQiN1QSNBkgoJ2\",\r\n    \"validado\": 0,\r\n    \"created_at\": \"2024-05-09T11:49:31.000000Z\",\r\n    \"updated_at\": \"2024-05-09T11:49:31.000000Z\",\r\n    \"rol_usuario_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/usuarios/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuarios",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todos los usuaurio",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "23|tpecY3c2CcM0qyGaCBF5Bpysih8hozJRFR8ZQFdT76d3037a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todos los usuarios no validados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/usuariosNoValidados",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"usuariosNoValidados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar un usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todas los usuarios no validados con sus fotos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/UsuariosNoValidadosConFotos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"UsuariosNoValidadosConFotos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

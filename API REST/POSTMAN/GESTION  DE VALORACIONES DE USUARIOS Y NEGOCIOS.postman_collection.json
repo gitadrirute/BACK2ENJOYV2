@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "68906d52-71a2-4065-b9b4-4398893a4e52",
+		"name": "GESTION  DE VALORACIONES DE USUARIOS Y NEGOCIOS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34500999"
+	},
+	"item": [
+		{
+			"name": "Crear una valoracion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "NmvhWrKelmQAUkTaOFFhE1UZQrCALB2qbcCcLHru",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valoracion\": 4,\r\n    \"comentario\": \"\",\r\n    \"usuario_id\": 1,\r\n    \"negocio_id\": 9\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/valoraciones",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"valoraciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar una  valoracion",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "k5Gwl4Tes3ZABBZDM9Na1Av3KIUHKPeQTE7WB4OL",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaAlta\": \"2023-04-15\",\r\n    \"fechaBaja\": \"2024-06-15\",\r\n    \"usuario_id\": \"1\",\r\n\t\"metodo_pago_id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/historialesPremium/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"historialesPremium",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todas las valoraciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/valoraciones",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"valoraciones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todas las valoraciones de los usuarios con negocios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/valoracionesDeUsuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"valoracionesDeUsuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar todas las valoraciones de los usuarios de un negocio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar una valoracion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una valoracion",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-CSRF-TOKEN",
+						"value": "aUuTptO4r3umeEMT4qoMm7fYpenjIrrrkanMK9xc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/valoraciones/24",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"valoraciones",
+						"24"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

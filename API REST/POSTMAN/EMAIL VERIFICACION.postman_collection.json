@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "3f4a4e56-b02d-46ca-91a7-d31251269191",
+		"name": "EMAIL VERIFICACION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34500999"
+	},
+	"item": [
+		{
+			"name": "Solicitar enlace de verificacion",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|e8OCZ5zOiVbWIxzhy1gdO9875RoT8JZP9do864NEe6472c31",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Ignacio\",\r\n    \"apellidos\": \"Florido Jiménez\",\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"contraseña\": \"nocilla\",\r\n    \"roles_usuarios_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/email/verification-notification",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"email",
+						"verification-notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Solicitar enlace de verificacion Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|D62nfVNGolFEJXefMAJZsz6Bzz32NGBubunHBBUL51e6f253",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Ignacio\",\r\n    \"apellidos\": \"Florido Jiménez\",\r\n    \"correo\": \"hola@gmail.com\",\r\n    \"contraseña\": \"nocilla\",\r\n    \"roles_usuarios_id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/email/verification-notification",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"email",
+						"verification-notification"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
