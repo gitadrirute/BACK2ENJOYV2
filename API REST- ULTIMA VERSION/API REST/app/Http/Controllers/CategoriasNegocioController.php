@@ -30,12 +30,12 @@ class CategoriasNegocioController extends Controller
      */
     public function store(Request $request)
     {
-
+            $usuario = auth()->user();
             $categoriaNegocio = new CategoriasNegocio;
             $categoriaNegocio->nombreCategoria = $request->nombreCategoria;
             $categoriaNegocio->save();
             $data = [
-                'mensaje' => 'Categoria del negocio creada correctamente',
+                'mensaje' => 'Categoria del negocio creada correctamente por el Adminsitrador: '.$usuario->nombre,
                 'categoria' => $categoriaNegocio
             ];
 
@@ -49,6 +49,7 @@ class CategoriasNegocioController extends Controller
      */
     public function show(CategoriasNegocio $categoriaNegocio, $id)
     {
+        
         $categoriaNegocio = CategoriasNegocio::findOrFail($id);
         return response()->json($categoriaNegocio);
     }
@@ -65,11 +66,12 @@ class CategoriasNegocioController extends Controller
      */
     public function update(Request $request, CategoriasNegocio $categoriaNegocio, $id)
     {
+        $usuario = auth()->user();
         $categoriaNegocio = CategoriasNegocio::findOrFail($id);
         $categoriaNegocio->nombreCategoria = $request->nombreCategoria;
         $categoriaNegocio->save();
         $data = [
-            'mensaje' => 'Categoria del negocio actualizada correctamente',
+            'mensaje' => 'Categoria del negocio actualizada correctamente por el Administrador: '.$usuario->nombress,
             'categoria' => $categoriaNegocio
         ];
 
@@ -81,12 +83,13 @@ class CategoriasNegocioController extends Controller
      */
     public function destroy(CategoriasNegocio $categoriaNegocio, $id)
     {
+        $usuario = auth()->user();
         $categoriaNegocio = CategoriasNegocio::findOrFail($id);
 
         $categoriaNegocio->delete();
 
         $data = [
-            'mensaje' => 'Categoria del negocio eliminada correctamente',
+            'mensaje' => 'Categoria del negocio eliminada correctamente por el administrador: '.$usuario->nombre,
             'categoria' => $categoriaNegocio
         ];
 

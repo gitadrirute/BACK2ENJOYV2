@@ -23,11 +23,7 @@ Route::get('/csrf-token', function () {
 });
 
 //RUTAS ROLES DE USUARIO
-Route::get('/rolesUsuario', 'App\Http\Controllers\RolesUsuarioController@index');
-Route::post('/rolesUsuario', 'App\Http\Controllers\RolesUsuarioController@store');
-Route::get('/rolesUsuario/{rol}', 'App\Http\Controllers\RolesUsuarioController@show');
-Route::put('/rolesUsuario/{rol}', 'App\Http\Controllers\RolesUsuarioController@update');
-Route::delete('/rolesUsuario/{rol}', 'App\Http\Controllers\RolesUsuarioController@destroy');
+
 Route::post('/loginCRM', 'App\Http\Controllers\Auth\AuthController@loginCRM'); //CRM
 
 
@@ -64,18 +60,13 @@ Route::delete('/metodosPago/{metodo}', 'App\Http\Controllers\MetodoPagoControlle
 
 //RUTAS VALORACIONES
 Route::get('/valoraciones', 'App\Http\Controllers\ValoracionesController@index');
-Route::post('/valoraciones', 'App\Http\Controllers\ValoracionesController@store');
 Route::get('/valoraciones/{valoracion}', 'App\Http\Controllers\ValoracionesController@show');
-Route::put('/valoraciones/{valoracion}', 'App\Http\Controllers\ValoracionesController@update');
-Route::delete('/valoraciones/{valoracion}', 'App\Http\Controllers\ValoracionesController@destroy');
+
 Route::get('/valoracionesDeUsuarios', 'App\Http\Controllers\ValoracionesController@mostrarValoConUserYNegocio');
 
 //RUTAS  DE CATEGORIAS DE NEGOCIOS
 Route::get('/categoriaNegocios', 'App\Http\Controllers\CategoriasNegocioController@index');
-Route::post('/categoriaNegocios', 'App\Http\Controllers\CategoriasNegocioController@store');
 Route::get('/categoriaNegocios/{categoria}', 'App\Http\Controllers\CategoriasNegocioController@show');
-Route::put('/categoriaNegocios/{categoria}', 'App\Http\Controllers\CategoriasNegocioController@update');
-Route::delete('/categoriaNegocios/{categoria}', 'App\Http\Controllers\CategoriasNegocioController@destroy');
 Route::post('/categoriaNegocios', 'App\Http\Controllers\CategoriasNegocioController@store');
 
 //RUTAS DE NEGOCIOS
@@ -83,7 +74,7 @@ Route::get('/negocios', 'App\Http\Controllers\NegocioController@index');
 /* Route::post('/negocios', 'App\Http\Controllers\NegocioController@store');
  */
 Route::get('/negocios/{negocio}', 'App\Http\Controllers\NegocioController@show');
-Route::put('/negocios/{negocio}', 'App\Http\Controllers\NegocioController@update');
+
 Route::delete('/negocios/{negocio}', 'App\Http\Controllers\NegocioController@destroy'); //CRM
 Route::get('/NegociosNoValidConOSinFotos', 'App\Http\Controllers\NegocioController@NegociosNoValidConOSinFotos'); //CRM
 Route::put('validarNegocio/{negocio}', 'App\Http\Controllers\NegocioController@validarNegocio'); //CRM
@@ -102,16 +93,13 @@ Route::delete('/ofertas/{oferta}', 'App\Http\Controllers\OfertaController@destro
 Route::get('/galeriaNegocios', 'App\Http\Controllers\GaleriaNegociosController@index');
 Route::post('/galeriaNegocios', 'App\Http\Controllers\GaleriaNegociosController@store');
 Route::get('/galeriaNegocios/{galeria}', 'App\Http\Controllers\GaleriaNegociosController@show');
-Route::put('/galeriaNegocios/{galeria}', 'App\Http\Controllers\GaleriaNegociosController@update');
-Route::delete('/galeriaNegocios/{galeria}', 'App\Http\Controllers\GaleriaNegociosController@destroy');
 
 
 //RUTAS DE GaleriasUsuario
 Route::get('/galeriaUsuarios', 'App\Http\Controllers\GaleriaUsuariosController@index');
 Route::post('/galeriaUsuarios', 'App\Http\Controllers\GaleriaUsuariosController@store');
 Route::get('/galeriaUsuarios/{galeria}', 'App\Http\Controllers\GaleriaUsuariosController@show');
-Route::put('/galeriaUsuarios/{galeria}', 'App\Http\Controllers\GaleriaUsuariosController@update');
-Route::delete('/galeriaUsuarios/{galeria}', 'App\Http\Controllers\GaleriaUsuariosController@destroy');
+
 
 //VISTAS
 Route::get('/topHosteleriaMejorValo', 'App\Http\Controllers\Vistas\VistasFrontController@topHosteleriaMejorValo');
@@ -119,7 +107,6 @@ Route::get('/topHotelesMejorValo', 'App\Http\Controllers\Vistas\VistasFrontContr
 Route::get('/valoracionesNegocio/{negocio}', 'App\Http\Controllers\Vistas\VistasFrontController@valoracionesNegocio');
 Route::get('/listadoHosteleriaTF', 'App\Http\Controllers\NegocioController@listadoHosteleriaTF');
 Route::get('/listadoHotelesTF', 'App\Http\Controllers\NegocioController@listadoHotelesTF');
-Route::post('/subirFotoNegocio', 'App\Http\Controllers\Vistas\VistasFrontController@subirFotoNegocio');
 
 
 //AUTH
@@ -139,8 +126,28 @@ Route::group(['middleware' => ['auth:sanctum']], function () { // pueden acceder
 
 
 Route::group(['middleware' =>  ['auth:sanctum', 'Admin']], function () { // pueden acceder aquellos que esten autenticados y que admas solo sean admins
-    //Route::get('/admin/usuarios', 'App\Http\Controllers\UsuarioController@index'); 
-
+    //ROLES DE USUARIO
+    Route::get('/rolesUsuario', 'App\Http\Controllers\RolesUsuarioController@index');
+    Route::post('/rolesUsuario', 'App\Http\Controllers\RolesUsuarioController@store');
+    Route::get('/rolesUsuario/{rol}', 'App\Http\Controllers\RolesUsuarioController@show');
+    Route::put('/rolesUsuario/{rol}', 'App\Http\Controllers\RolesUsuarioController@update');
+    Route::delete('/rolesUsuario/{rol}', 'App\Http\Controllers\RolesUsuarioController@destroy');
+    //NEGOCIOS
+    Route::put('/negocios/{negocio}', 'App\Http\Controllers\NegocioController@update');
+    //CATEGORIA NEGOCIO
+    Route::delete('/categoriaNegocios/{categoria}', 'App\Http\Controllers\CategoriasNegocioController@destroy');
+    Route::post('/categoriaNegocios', 'App\Http\Controllers\CategoriasNegocioController@store');
+    Route::put('/categoriaNegocios/{categoria}', 'App\Http\Controllers\CategoriasNegocioController@update');
+    //FOTOS NEGOCIOS
+    Route::put('/galeriaNegocios/{galeria}', 'App\Http\Controllers\GaleriaNegociosController@update');
+    Route::delete('/galeriaNegocios/{galeria}', 'App\Http\Controllers\GaleriaNegociosController@destroy');
+    //FOTOS USUARIOS
+    Route::put('/galeriaUsuarios/{galeria}', 'App\Http\Controllers\GaleriaUsuariosController@update');
+    Route::delete('/galeriaUsuarios/{galeria}', 'App\Http\Controllers\GaleriaUsuariosController@destroy');
+    //VALORACIONES Y RESEÑAS
+    Route::put('/valoraciones/{valoracion}', 'App\Http\Controllers\ValoracionesController@update');
+    Route::delete('/valoraciones/{valoracion}', 'App\Http\Controllers\ValoracionesController@destroy');
+    Route::post('/valoraciones', 'App\Http\Controllers\ValoracionesController@store');
 });
 
 
@@ -150,5 +157,9 @@ Route::group(['middleware' => ['auth:sanctum', 'usuarioNormal']], function () {
     Route::get('/perfilUsuario', 'App\Http\Controllers\Auth\AuthController@perfilUsuario');
     Route::post('/anadirValoracion', 'App\Http\Controllers\Vistas\VistasFrontController@añadirValoracion');
     Route::post('/subirFotoNegocio', 'App\Http\Controllers\Vistas\VistasFrontController@subirFotoNegocio');
+    Route::post('/subirFotoPerfilUsuario', 'App\Http\Controllers\Vistas\VistasFrontController@subirFotoPerfilUsuario');
+    Route::get('/mostrarFotoPerfil', 'App\Http\Controllers\Vistas\VistasFrontController@mostrarFotoPerfil');
+    Route::post('/subirOferta', 'App\Http\Controllers\Vistas\VistasFrontController@subirOferta');
+
 
 });

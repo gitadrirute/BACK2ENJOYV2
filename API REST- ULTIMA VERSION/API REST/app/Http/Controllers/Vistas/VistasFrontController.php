@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Vistas;
 
 use App\Http\Controllers\Controller;
 use App\Models\GaleriaNegocios;
+use App\Models\GaleriaUsuarios;
 use App\Models\Negocio;
 use App\Models\Oferta;
 use Illuminate\Http\Request;
@@ -337,15 +338,28 @@ class VistasFrontController extends Controller
     {
         try {
 
+            $usuario = auth()->user();
+            $negocioDelUsuario = Negocio::where('usuario_id', '=', $usuario->id)->first();
+
+            if (!$negocioDelUsuario) {
+
+                return response()->json([
+
+                    'mensaje' => 'Error, este usuario no tiene asociado un negocio aún'
+
+                ], Response::HTTP_NOT_FOUND);
+            }
+
             $validated =  $request->validate(
                 [
 
                     'titulo' => 'required|max:35',
-                    'descripción' => 'required|max:100',
+                    'descripcion' => 'required|max:100',
                     'descuento' => 'required|numeric|regex:/^[1-9]{1,2}$/', //descuento acepta 2 digitos del 0 al 99
                     'fechaInicio' => 'required|date',
                     'fechaFin' => 'required|date',
-                    'tipoOferta' => 'required|max:20'
+                    'tipoOferta' => 'required|max:20',
+
                 ],
                 [
 
@@ -366,19 +380,7 @@ class VistasFrontController extends Controller
                 ]
             );
 
-
-
-            $usuario = auth()->user();
-            $negocioDelUsuario = Negocio::where($usuario->id, '=', 'negocios.usuario_id')->first();
-
-            if (!$negocioDelUsuario) {
-
-                return response()->json([
-
-                    'mensaje' => 'Error, este usuario no tiene asociado un negocio aún'
-
-                ], Response::HTTP_NOT_FOUND);
-            }
+            $estadoPorDefecto = 1;
 
             $oferta = new Oferta();
             $oferta->titulo = $validated['titulo'];
@@ -387,8 +389,15 @@ class VistasFrontController extends Controller
             $oferta->fechaInicio = $validated['fechaInicio'];
             $oferta->fechaFin = $validated['fechaFin'];
             $oferta->tipoOferta = $validated['tipoOferta'];
-            $oferta->negocio_id = $negocioDelUsuario;
+            $oferta->estado = $estadoPorDefecto;
+            $oferta->negocio_id = $negocioDelUsuario->id;
             $oferta->save();
+
+            return response()->json([
+                'mensaje' => 'Oferta creada exitosamente por el usuario: ' . $usuario->nombre,
+                'oferta' => $oferta
+
+            ], Response::HTTP_OK);
         } catch (ValidationException $error) {
 
             return response()->json([
@@ -422,7 +431,7 @@ class VistasFrontController extends Controller
 
             foreach ($imagenes as $imagen) {
                 $rutaImagen = $imagen->store('public/ImagenesUsuarios');
-                $foto = new GaleriaNegocios();
+                $foto = new GaleriaUsuarios();
                 $foto->rutaImagen = '/' . str_replace('public/', 'storage/', $rutaImagen);
                 $foto->usuario_id = $usuario->id;
                 $foto->save();
@@ -447,7 +456,7 @@ class VistasFrontController extends Controller
 
         $usuario = auth()->user();
 
-        $fotoPerfil = GaleriaNegocios::select('rutaImagen')
+        $fotoPerfil = GaleriaUsuarios::select('rutaImagen')
             ->where('usuario_id', '=', $usuario->id)
             ->first();
 
@@ -460,7 +469,7 @@ class VistasFrontController extends Controller
         }
 
         return response()->json([
-            'mensaje' => 'Foto de perfil del usuario: '.$usuario->nombre.' ('.$usuario->nombreUsuario.')',
+            'mensaje' => 'Foto de perfil del usuario: ' . $usuario->nombre . ' (' . $usuario->nombreUsuario . ')',
             'fotoPerfil' => $fotoPerfil->rutaImagen
         ], Response::HTTP_OK);
     }

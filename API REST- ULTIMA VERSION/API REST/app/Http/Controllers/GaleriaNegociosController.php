@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GaleriaUsuarios;
+use App\Models\GaleriaNegocios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
-class GaleriaUsuariosController extends Controller
+class GaleriaNegociosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $galeriaUsuario = GaleriaUsuarios::all();
+        $galeriaNegocio = GaleriaNegocios::all();
 
-        return response()->json($galeriaUsuario);
+        return response()->json($galeriaNegocio);
     }
 
     /**
@@ -40,20 +40,20 @@ class GaleriaUsuariosController extends Controller
                 [
                     'rutaImagen.required '=> 'La foto es obligatoria',
                     'rutaImagen.image' => 'Debes introducir una imagen',
-                    'rutaImagen.mimes:jpg,png,jpeg,svg' => 'Debes introducir una imagen que cumpla con el formato:jpg, png, jpeg o svg'
+                    'rutaImagen.mimes' => 'Debes introducir una imagen que cumpla con el formato:jpg, png, jpeg o svg'
                 ]
             );
     
-            $galeriaUsuario = new GaleriaUsuarios();
+            $galeriaNegocio = new GaleriaNegocios();
             //$galeriaNegocio->rutaImagen = $request->rutaImagen;
-             $galeriaUsuario->rutaImagen = $request->file('rutaImagen')->store('public/ImagenesUsuarios');
+            $galeriaNegocio->rutaImagen = $request->file('rutaImagen')->store('public/ImagenesNegocios');
     
-            $galeriaUsuario->usuario_id = $request->usuario_id;
+            $galeriaNegocio->negocio_id = $request->negocio_id;
     
-            $galeriaUsuario->save();
+            $galeriaNegocio->save();
             $data = [
                 'mensaje' => 'Imagen subida correctamente',
-                'ruta_imagen' => Storage::url($galeriaUsuario->rutaImagen)
+                'ruta_imagen' => Storage::url($galeriaNegocio->rutaImagen)
             ];
     
             return response()->json($data);
@@ -64,6 +64,7 @@ class GaleriaUsuariosController extends Controller
                 'errores'=> $errores->errors()
             ]);
         }
+        
     }
 
     /**
@@ -71,14 +72,14 @@ class GaleriaUsuariosController extends Controller
      */
     public function show($id)
     {
-        $galeriaUsuario = GaleriaUsuarios::findOrFail($id);
-        return response()->json($galeriaUsuario);
+        $galeriaNegocio = GaleriaNegocios::findOrFail($id);
+        return response()->json($galeriaNegocio);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(GaleriaUsuarios $galeriaUsuarios)
+    public function edit(GaleriaNegocios $galeriaNegocios)
     {
         //
     }
@@ -86,17 +87,17 @@ class GaleriaUsuariosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,  $id)
     {
-        $galeriaUsuario = GaleriaUsuarios::findOrFail($id);
+        $usuario= auth()->user();
+        $galeriaNegocio = GaleriaNegocios::findOrFail($id);
 
-        $galeriaUsuario->rutaImagen = $request->rutaImagen;
-        $galeriaUsuario->usuario_id = $request->usuario_id;
-
-        $galeriaUsuario->save();
+        $galeriaNegocio->rutaImagen = $request->rutaImagen;
+        $galeriaNegocio->negocio_id = $request->negocio_id;
+        $galeriaNegocio->save();
         $data = [
-            'mensaje' => 'galeria actualizada correctamente',
-            'galeria' => $galeriaUsuario
+            'mensaje' => 'Imagen actualizada correctamente por el Administrador: '.$usuario->nombre,
+            'tipo de oferta' => $galeriaNegocio
         ];
 
         return response()->json($data);
@@ -107,15 +108,15 @@ class GaleriaUsuariosController extends Controller
      */
     public function destroy($id)
     {
-        $galeriaUsuario = GaleriaUsuarios::findOrFail($id);
-        $galeriaUsuario->delete();
+        $usuario= auth()->user();
+
+        $galeriaNegocio = GaleriaNegocios::findOrFail($id);
+        $galeriaNegocio->delete();
 
         $data = [
-            'mensaje' => 'galeria eliminada correctamente',
-            'galeria' => $galeriaUsuario
+            'mensaje' => 'Imagen eliminada correctamente por el Administrador: '.$usuario->nombre,
+            'usuario' => $galeriaNegocio
         ];
         return response()->json($data);
     }
-
-   
 }

@@ -132,6 +132,8 @@ class NegocioController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $usuario = auth()->user();
+        
         $negocio = Negocio::findOrFail($id);
         $negocio->nombre = $request->nombre;
         $negocio->NIF = $request->NIF;
@@ -148,7 +150,7 @@ class NegocioController extends Controller
         $negocio->save();
 
         $data = [
-            'mensaje' => 'Negocio actualizado correctamente',
+            'mensaje' => 'Negocio actualizado correctamente por el Administrador: '.$usuario->nombre,
             'negocio' => $negocio
         ];
 

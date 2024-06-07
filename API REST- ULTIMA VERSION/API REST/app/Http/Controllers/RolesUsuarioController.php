@@ -13,6 +13,7 @@ class RolesUsuarioController extends Controller
      */
     public function index()
     {
+
         $rolesUsario = RolesUsuario::all();
 
         return response()->json($rolesUsario);
@@ -31,13 +32,15 @@ class RolesUsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        $usuario = auth()->user();
+
         $rolUsuario = new RolesUsuario;
         $rolUsuario->nombreRol = $request->nombreRol;
         $rolUsuario->contraseña = Hash::make($request->contraseña);
         $rolUsuario->save();
 
         $data = [
-            'mensaje' => 'Rol de usuario creado correctamente',
+            'mensaje' => 'Rol de usuario creado correctamente por el Administrador: '.$usuario->nombre,
             'rolUsuario' => $rolUsuario
         ];
 
@@ -66,13 +69,15 @@ class RolesUsuarioController extends Controller
      */
     public function update(Request $request, RolesUsuario $rolesUsuario, $id)
     {
+        $usuario = auth()->user();
+
         $rolesUsuario = RolesUsuario::findOrFail($id);
         $rolesUsuario->nombreRol = $request->nombreRol;
         $rolesUsuario->contraseña = $request->contraseña;
         $rolesUsuario->save();
 
         $data = [
-            'mensaje' => 'Rol de usuario actualizado correctamente',
+            'mensaje' => 'Rol de usuario actualizado correctamente por el Administrador: '.$usuario->nombre,
             'rolesUsuario' => $rolesUsuario
         ];
 
@@ -84,11 +89,13 @@ class RolesUsuarioController extends Controller
      */
     public function destroy($id)
     {
+        $usuario = auth()->user();
+
         $rolesUsuario = RolesUsuario::findOrFail($id);
 
         $rolesUsuario->delete();
         $data = [
-            'mensaje' => 'Rol de usuario eliminado correctamente',
+            'mensaje' => 'Rol de usuario eliminadocorrectamente por el Administrador: '.$usuario->nombre,
             'rolusuario' => $rolesUsuario
         ];
 

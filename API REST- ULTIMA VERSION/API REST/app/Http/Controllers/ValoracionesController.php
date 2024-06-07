@@ -31,6 +31,7 @@ class ValoracionesController extends Controller
      */
     public function store(Request $request)
     {
+        $usuario = auth()->user();
         $valoracion = new Valoraciones;
         $valoracion->valoracion = $request->valoracion;
         $valoracion->comentario = $request->comentario;
@@ -40,7 +41,7 @@ class ValoracionesController extends Controller
         $valoracion->save();
 
         $data = [
-            'mensaje' => 'Valoracion de usuario creada correctamente',
+            'mensaje' => 'Valoracion de usuario creada correctamente por el Adminisrador: '.$usuario->nombre,
             'valoracion' => $valoracion
         ];
         return response()->json($data);
@@ -72,6 +73,8 @@ class ValoracionesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $usuario = auth()->user();
+
         $valoracion = Valoraciones::findOrFail($id);
         $valoracion->valoracion = $request->valoracion;
         $valoracion->comentario = $request->comentario;
@@ -80,7 +83,7 @@ class ValoracionesController extends Controller
         $valoracion->save();
 
         $data = [
-            'mensaje' => 'Valoracion de usuario actualizada correctamente',
+            'mensaje' => 'Valoracion de usuario actualizada correctamente por el Adminisrador: '.$usuario->nombre,
             'valoracion' => $valoracion
         ];
         return response()->json($data);
@@ -91,10 +94,12 @@ class ValoracionesController extends Controller
      */
     public function destroy( $id)
     {
+        $usuario = auth()->user();
+
         $valoracion = Valoraciones::findOrFail($id);
         $valoracion->delete();
         $data = [
-            'mensaje' => 'Valoracion de usuario eliminada correctamente',
+            'mensaje' => 'Valoracion de usuario eliminadacorrectamente por el Adminisrador: '.$usuario->nombre,
             'valoracion' => $valoracion
         ];
         return response()->json($data);

@@ -24,29 +24,22 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     
     ->withExceptions(function (Exceptions $exceptions) {
-       /*  $exceptions->report(function (AuthenticationException $e) {
+         $exceptions->report(function (AuthenticationException $e) {
             return response()->json([
               'mensaje' => 'Acceso denegado: debes estar autenticado para acceder al recurso',
-              'error' => $e
-            ]);
+              'error' => $e->getMessage()
+            ],401);
         });
     
         $exceptions->report(function (AuthorizationException $e) {
             return response()->json([
-                'mensaje' => 'Acceso denegado: dno estas authorizado para acceder al recurso',
-                'error' => $e
-              ]);
+                'mensaje' => 'Acceso denegado: no estas authorizado para acceder al recurso',
+                'error' => $e->getMessage()
+            ],403);
 
         
         });
 
-        $exceptions->report(function (RouteNotFoundException $e) {
-            return response()->json([
-                'mensaje' => 'Acceso denegado: dno estas authorizado para acceder al recurso',
-                'error' => $e
-              ]);
-
-        
-        }); */
+         
         
     })->create();
